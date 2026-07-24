@@ -1,3 +1,3 @@
 ## Changes
 
-- Add English localization strings for upcoming features in Bondsmith (faction hierarchy and derived relations), Calendaria (Hijri calendar, fixed-cycle leap years, moon hiding, HUD docking), Mindful Encounters (dungeon mode notices), and Spell Book (party analysis, spell sources)
+- Updated localization strings
