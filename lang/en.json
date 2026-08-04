@@ -3600,7 +3600,6 @@
   "CALENDARIA.TimeKeeper.Forward5x": "Advance Time (5x)",
   "CALENDARIA.TimeKeeper.GMOnly": "Only the GM can control time",
   "CALENDARIA.TimeKeeper.NoPermission": "You don't have permission to adjust time",
-  "CALENDARIA.TimeKeeper.ReadOnly": "Time Controls (GM Only)",
   "CALENDARIA.TimeKeeper.Reverse": "Reverse Time (1x)",
   "CALENDARIA.TimeKeeper.Reverse5x": "Reverse Time (5x)",
   "CALENDARIA.TimeKeeper.Start": "Start Clock",
