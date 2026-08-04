@@ -2321,6 +2321,7 @@
   "CALENDARIA.Format.TokenHeader": "Token",
   "CALENDARIA.Format.TokenReference": "Token Reference",
   "CALENDARIA.Format.Tomorrow": "tomorrow",
+  "CALENDARIA.Format.Warning.UnknownToken": "Unrecognized token(s): {tokens}. Tokens are case sensitive; wrap literal text in [brackets].",
   "CALENDARIA.Format.Yesterday": "yesterday",
   "CALENDARIA.Formatters.DayMonth": "{day} {month}",
   "CALENDARIA.Formatters.DayMonthYear": "{day} {month}, {yyyy}",
