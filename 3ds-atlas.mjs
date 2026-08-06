@@ -1,5 +1,6 @@
 import { exposeApi } from './scripts/api.mjs';
 import { HOOKS, MODULE } from './scripts/constants.mjs';
+import { initializeRelay } from './scripts/relay.mjs';
 import ATLASSettings from './scripts/settings.mjs';
 import { applyModuleTheme, initializeThemes } from './scripts/theme/theme-engine.mjs';
 import { checkForUpdates } from './scripts/updates/update-checker.mjs';
@@ -15,6 +16,7 @@ Hooks.once('init', () => {
 
 Hooks.once('ready', async () => {
   initializeLogger();
+  initializeRelay();
   initializeThemes();
   Hooks.callAll(HOOKS.READY);
   await checkForUpdates();

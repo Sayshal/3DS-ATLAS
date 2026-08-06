@@ -24,5 +24,8 @@ export const HOOKS = {
   THEME_CHANGED: `${MODULE.ID}.themeChanged`
 };
 
+/** @type {string} Socket channel used by the cross-client event relay. */
+export const RELAY_CHANNEL = `module.${MODULE.ID}`;
+
 /** @type {string} DOM id prefix + CSS var namespace shared by every consuming module. */
 export const CSS_NAMESPACE = 'atlas';
