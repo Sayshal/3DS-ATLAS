@@ -3904,6 +3904,7 @@
   "DEFAULT_DETACH.Settings.ConfigName": "Configure Auto-Detach",
   "DONT-FORGET.add-reminder-tooltip": "Create a new reminder",
   "DONT-FORGET.add-reminder": "Add Reminder",
+  "DONT-FORGET.api.source-mismatch": "This reminder belongs to {source} and can only be changed by it.",
   "DONT-FORGET.button-title": "Reminders",
   "DONT-FORGET.Cancel": "Cancel",
   "DONT-FORGET.confirms.deleteCompletedConfirm.Content": "Are you sure you want to delete all completed reminders? This action cannot be undone.",
