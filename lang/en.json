@@ -4553,8 +4553,6 @@
   "HEROMANCER.Settings.HPRerollOnes.Name": "Reroll 1s on Hit Dice",
   "HEROMANCER.Settings.KeepApprovalArchive.Hint": "Keep approved and rejected submissions in a journal instead of deleting them on resolve.",
   "HEROMANCER.Settings.KeepApprovalArchive.Name": "Archive Submissions",
-  "HEROMANCER.Settings.LockIdentityRuleset.Hint": "When on, your first identity pick locks every other identity choice to its ruleset (2014 or 2024). Options with no ruleset stay available to all.",
-  "HEROMANCER.Settings.LockIdentityRuleset.Name": "Lock identity decisions to ruleset",
   "HEROMANCER.Settings.MaxRerollAttempts.Hint": "How many times a player can reroll. Set to 0 for unlimited.",
   "HEROMANCER.Settings.MaxRerollAttempts.Name": "Max Reroll Attempts",
   "HEROMANCER.Settings.MulticlassThreshold.Hint": "Minimum ability score required to multiclass into a class. Standard is 13.",
