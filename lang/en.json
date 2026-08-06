@@ -4734,6 +4734,8 @@
   "mindful-encounters.panel.resetTip": "Clear budgets, Done, and inclusion. No time passes.",
   "mindful-encounters.panel.toggleTip": "Enable budgeted movement on this scene. Each token moves up to its cap, clicks Done, then the clock advances.",
   "mindful-encounters.panel.turn": "Turn {turn}",
+  "mindful-encounters.panel.turnLabel": "Turn",
+  "mindful-encounters.panel.turnTip": "Set the dungeon turn counter. Clears the current turn's movement, Done, and actions. No time passes.",
   "mindful-encounters.panel.undoneTip": "Undo Done",
   "mindful-encounters.panel.untrackedTip": "Not tracked this turn; unowned tokens do not contribute to turn advancement. Use the include toggle to track this token.",
   "mindful-encounters.panel.veto": "Veto",
