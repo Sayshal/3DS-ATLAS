@@ -2714,6 +2714,8 @@
   "CALENDARIA.Note.Ownership.Observer": "Observer",
   "CALENDARIA.Note.Ownership.Owner": "Owner",
   "CALENDARIA.Note.Ownership.PlayerHint": "Only the GM can manage note permissions.",
+  "CALENDARIA.Note.PersistToDo": "Save as To-Do",
+  "CALENDARIA.Note.PersistToDoTooltip": "When the reminder fires, also add it to each notified user's Don't Forget list.",
   "CALENDARIA.Note.Preset.AnnuallyInverseMonthWeekday": "{ordinal} to last {weekday} in {month}",
   "CALENDARIA.Note.Preset.AnnuallyMonthWeekday": "{ordinal} {weekday} in {month}",
   "CALENDARIA.Note.Preset.AnyEclipse": "Any Eclipse",
