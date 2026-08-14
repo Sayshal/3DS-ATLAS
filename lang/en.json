@@ -4816,6 +4816,8 @@
   "mindful-encounters.profiles.resetTip": "Restore this profile's defaults",
   "mindful-encounters.profiles.title": "Pacing Profiles",
   "mindful-encounters.profiles.wilderness": "Wilderness",
+  "mindful-encounters.seed.prompt": "Travel Pace calculated a route. Set the shared party budget to {budget} {units} per {minutes}-minute turn?",
+  "mindful-encounters.seed.title": "Seed Party Budget",
   "mindful-encounters.settings.actionsPerTurn.hint": "How many actions each token may log per turn. 0 = unlimited.",
   "mindful-encounters.settings.actionsPerTurn.name": "Actions per turn",
   "mindful-encounters.settings.capMultiplier.hint": "Multiplies system speed to set each token's budget.",
