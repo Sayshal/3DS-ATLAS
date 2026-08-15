@@ -287,6 +287,8 @@
   "bondsmith.controls.openFull": "Open Full Viewer",
   "bondsmith.controls.openGraphs": "Graph Dashboard",
   "bondsmith.controls.openSettings": "Bondsmith Settings",
+  "bondsmith.controls.partySpells": "Party Spells",
+  "bondsmith.controls.partySpellsEmpty": "No spellcasters in the active party.",
   "bondsmith.controls.reportBug": "Report a Bug (Discord)",
   "bondsmith.controls.sidebarLabel": "Bondsmith Sidebar",
   "bondsmith.creator.duplicateSubmit": "Duplicate",
