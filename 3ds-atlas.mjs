@@ -2,7 +2,7 @@ import { exposeApi } from './scripts/api.mjs';
 import { HOOKS, MODULE } from './scripts/constants.mjs';
 import { initializeRelay } from './scripts/relay.mjs';
 import ATLASSettings from './scripts/settings.mjs';
-import { applyModuleTheme, initializeThemes } from './scripts/theme/theme-engine.mjs';
+import { applyModuleTheme, initializeThemes, syncDetachedWindow } from './scripts/theme/theme-engine.mjs';
 import { checkForUpdates } from './scripts/updates/update-checker.mjs';
 import { initializeLogger, log } from './scripts/utils/logger.mjs';
 import './styles/global.css';
@@ -24,3 +24,5 @@ Hooks.once('ready', async () => {
 });
 
 Hooks.on(HOOKS.REGISTERED, (entry) => applyModuleTheme(entry.id));
+
+Hooks.on('openDetachedWindow', (_id, win) => syncDetachedWindow(win));

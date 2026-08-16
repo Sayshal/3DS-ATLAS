@@ -96,24 +96,56 @@ function buildScopedCss(scope, colors) {
 }
 
 /**
- * Write or clear one scoped `<style>` element.
+ * Every document theme blocks must be written to: the main window plus any open detached window.
+ * @returns {Document[]}
+ */
+function themeDocuments() {
+  const docs = [document];
+  for (const { window: win } of foundry.applications.detached?.windows?.values() ?? []) if (win && !win.closed) docs.push(win.document);
+  return docs;
+}
+
+/**
+ * Write or clear one scoped `<style>` element in each target document.
+ * Resolving by id upserts in place, so repeated detach cycles never duplicate nodes.
  * @param {string} elId        Style element id
  * @param {string} scope       CSS selector
  * @param {string} [themeKey]  Theme key; omit or 'none' to clear
+ * @param {Document[]} [docs]  Target documents; defaults to main plus detached
  * @returns {void}
  */
-function writeBlock(elId, scope, themeKey) {
-  let styleEl = document.getElementById(elId);
-  if (!themeKey || themeKey === 'none') {
-    styleEl?.remove();
-    return;
+function writeBlock(elId, scope, themeKey, docs = themeDocuments()) {
+  const css = !themeKey || themeKey === 'none' ? null : buildScopedCss(scope, getColorsForTheme(themeKey));
+  for (const doc of docs) {
+    let styleEl = doc.getElementById(elId);
+    if (!css) {
+      styleEl?.remove();
+      continue;
+    }
+    if (!styleEl) {
+      styleEl = doc.createElement('style');
+      styleEl.id = elId;
+      doc.head.appendChild(styleEl);
+    }
+    styleEl.textContent = css;
   }
-  if (!styleEl) {
-    styleEl = document.createElement('style');
-    styleEl.id = elId;
-    document.head.appendChild(styleEl);
-  }
-  styleEl.textContent = buildScopedCss(scope, getColorsForTheme(themeKey));
+}
+
+/**
+ * Write a registered module's theme blocks without announcing a change.
+ * @param {string} moduleId    Registered module id
+ * @param {Document[]} [docs]  Target documents; defaults to main plus detached
+ * @returns {object|null} The module's theme selection, or null when it has no themeable scope
+ */
+function writeModuleBlocks(moduleId, docs) {
+  const mod = getModule(moduleId);
+  if (!mod?.theme?.scope) return null;
+  const selection = getModuleThemes()[moduleId] || {};
+  const mainTheme = getForcedTheme(moduleId) || selection.theme || mod.theme.default || 'dark';
+  writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}`, mod.theme.scope, mainTheme, docs);
+  for (const app of getAppScopes(mod.theme))
+    writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, selection.apps?.[app.key] || mod.theme.apps?.[app.key]?.default || mainTheme, docs);
+  return selection;
 }
 
 /**
@@ -122,13 +154,18 @@ function writeBlock(elId, scope, themeKey) {
  * @returns {void}
  */
 export function applyModuleTheme(moduleId) {
-  const mod = getModule(moduleId);
-  if (!mod?.theme?.scope) return;
-  const selection = getModuleThemes()[moduleId] || {};
-  const mainTheme = getForcedTheme(moduleId) || selection.theme || mod.theme.default || 'dark';
-  writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}`, mod.theme.scope, mainTheme);
-  for (const app of getAppScopes(mod.theme)) writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, selection.apps?.[app.key] || mod.theme.apps?.[app.key]?.default || mainTheme);
-  Hooks.callAll(HOOKS.THEME_CHANGED, { moduleId, selection });
+  const selection = writeModuleBlocks(moduleId);
+  if (selection) Hooks.callAll(HOOKS.THEME_CHANGED, { moduleId, selection });
+}
+
+/**
+ * Apply every registered module's theme blocks into a newly detached window.
+ * @param {Window} win  The detached window
+ * @returns {void}
+ */
+export function syncDetachedWindow(win) {
+  if (!win || win.closed) return;
+  for (const moduleId of getRegisteredModules().keys()) writeModuleBlocks(moduleId, [win.document]);
 }
 
 /**
