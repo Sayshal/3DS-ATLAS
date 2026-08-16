@@ -4419,6 +4419,7 @@
   "HEROMANCER.Approval.RejectionNotice.Restore": "Restore from submission",
   "HEROMANCER.Approval.RejectionNotice.StartOver": "Start over",
   "HEROMANCER.Approval.RejectionNotice.Title": "Submission Rejected",
+  "HEROMANCER.Approval.Reminder.Review": "Review {name}'s character submission from {submitter}.",
   "HEROMANCER.Approval.Replay.Created": "Your GM approved {name}. The sheet is now open.",
   "HEROMANCER.Approval.Replay.Failed": "Approval received, but character creation failed. Check the console for details.",
   "HEROMANCER.Approval.Replay.GMEdited": "Your GM approved {name} (with edits). The character has been created.",
