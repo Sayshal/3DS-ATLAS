@@ -4027,6 +4027,8 @@
   "DONT-FORGET.reminder-text": "Reminder Text",
   "DONT-FORGET.save": "Save",
   "DONT-FORGET.show-completed": "Show completed",
+  "DONT-FORGET.settings.due-dates.Hint": "Let reminders carry an in-world due date, backed by a calendar note. Turning this off keeps the dates already set.",
+  "DONT-FORGET.settings.due-dates.Name": "In-world due dates",
   "DONT-FORGET.settings.inject-button.Hint": "Display the Reminders button in the player list",
   "DONT-FORGET.settings.inject-button.Name": "Show Reminders button",
   "DONT-FORGET.table-headers.actions-tooltip": "Edit or delete reminders",
