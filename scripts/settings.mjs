@@ -1,4 +1,5 @@
 import { MODULE, SETTINGS } from './constants.mjs';
+import DocsSearch from './docs-search.mjs';
 import ThemeConfig from './theme/theme-config.mjs';
 import { initializeThemes } from './theme/theme-engine.mjs';
 import Troubleshooter from './troubleshooter.mjs';
@@ -8,7 +9,7 @@ const { BooleanField, ObjectField, StringField } = foundry.data.fields;
 /** Registers and manages ATLAS game settings. */
 export default class ATLASSettings {
   /**
-   * Register all settings and the theme/troubleshooter menus.
+   * Register all settings and the theme, troubleshooter, and docs search menus.
    * @returns {void}
    */
   static registerSettings() {
@@ -57,6 +58,14 @@ export default class ATLASSettings {
       hint: 'ATLAS.Troubleshooter.MenuHint',
       icon: 'fas fa-stethoscope',
       type: Troubleshooter,
+      restricted: false
+    });
+    game.settings.registerMenu(MODULE.ID, 'docsSearch', {
+      name: 'ATLAS.DocsSearch.MenuName',
+      label: 'ATLAS.DocsSearch.MenuLabel',
+      hint: 'ATLAS.DocsSearch.MenuHint',
+      icon: 'fas fa-book-open',
+      type: DocsSearch,
       restricted: false
     });
   }

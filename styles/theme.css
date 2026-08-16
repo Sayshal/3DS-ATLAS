@@ -149,6 +149,52 @@
   overflow: hidden auto;
 }
 
+.atlas-docs-search {
+  .atlas-docs-search-body {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .atlas-docs-results {
+    max-height: 30rem;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+
+    li {
+      gap: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.25rem 0.5rem;
+      border-bottom: thin solid var(--atlas-divider, rgb(65 65 65));
+
+      a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .atlas-docs-module {
+    flex: 0 0 auto;
+    padding: 0.0625rem 0.5rem;
+    border: thin solid var(--atlas-border, rgb(74 74 74));
+    border-radius: 1rem;
+    color: var(--atlas-text-dim, rgb(160 160 160));
+    font-size: var(--font-size-11, 0.6875rem);
+    white-space: nowrap;
+  }
+
+  .atlas-docs-message {
+    color: var(--atlas-text-dim, rgb(160 160 160));
+    font-size: var(--font-size-12, 0.75rem);
+  }
+}
+
 .atlas-troubleshooter {
   .atlas-troubleshooter-body {
     gap: 0.5rem;
