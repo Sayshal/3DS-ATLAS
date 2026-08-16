@@ -6026,6 +6026,7 @@
   "TravelPace.Speed.Units.Hour": "hour",
   "TravelPace.Speed.Units.Minute": "min",
   "TravelPace.Time.Format.Separator": ", ",
+  "TravelPace.Time.Immobile": "Cannot travel",
   "TravelPace.Time.NoTime": "0 minutes",
   "TravelPace.Title": "Travel Pace Calculator",
   "TravelPace.Units.Plural.Suffix": "s",
