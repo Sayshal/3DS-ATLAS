@@ -6032,8 +6032,6 @@
   "VGMusic.Settings.DefaultMusic.Hint": "Configure default music for various situations",
   "VGMusic.Settings.DefaultMusic.Label": "Configure Default Music",
   "VGMusic.Settings.DefaultMusic.Name": "Default Music",
-  "VGMusic.Settings.FadeDuration.Hint": "Duration in seconds for crossfading between tracks. Set to 0 to use each sound's individual fade setting.",
-  "VGMusic.Settings.FadeDuration.Name": "Fade Duration",
   "VGMusic.Settings.NowPlayingWidget.BigCalActions": "Calendar Actions",
   "VGMusic.Settings.NowPlayingWidget.Hint": "Where the now-playing indicator sits in Calendaria's interface.",
   "VGMusic.Settings.NowPlayingWidget.HudButtonsLeft": "HUD Buttons (Left)",
