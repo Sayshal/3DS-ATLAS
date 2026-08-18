@@ -667,7 +667,7 @@ export function cssVar(key) {
  * @param {string} hex  Color to measure.
  * @returns {boolean}
  */
-function isLight(hex) {
+export function isLight(hex) {
   const [r, g, b] = foundry.utils.Color.fromString(hex).rgb;
   return 0.299 * r + 0.587 * g + 0.114 * b > 0.5;
 }
@@ -714,8 +714,9 @@ export function generateDerivedColors(colors) {
     derived[`--${ns}-surface-dim-50`] = surface.toRGBA(0.5);
     derived[`--${ns}-surface-dim-75`] = surface.toRGBA(0.75);
   }
-  derived[`--${ns}-text-on-color`] = '#ffffff';
-  derived[`--${ns}-text-shadow-on-color`] = 'rgb(0 0 0 / 50%)';
+  const onColorIsDark = colors.primary ? isLight(colors.primary) : false;
+  derived[`--${ns}-text-on-color`] = onColorIsDark ? colors.buttonText || colors.textHeading || '#000000' : '#ffffff';
+  derived[`--${ns}-text-shadow-on-color`] = onColorIsDark ? 'rgb(255 255 255 / 45%)' : 'rgb(0 0 0 / 50%)';
   if (colors.bg && !colors.bgHover) derived[`--${ns}-bg-hover`] = contrast(colors.bg, 8);
   if (colors.buttonBg) derived[`--${ns}-button-hover`] = contrast(colors.buttonBg, 10);
   return derived;

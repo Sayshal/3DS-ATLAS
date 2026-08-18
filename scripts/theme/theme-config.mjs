@@ -99,6 +99,7 @@ export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV
         if (!entry.theme?.scope) continue;
         await setModuleTheme(entry.id, key);
         for (const app of getAppScopes(entry.theme)) await setModuleTheme(entry.id, key, app.key);
+        if (game.user.isGM && getForcedTheme(entry.id)) await setForcedTheme(entry.id, key);
       }
       this.render();
     });
