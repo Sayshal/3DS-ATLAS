@@ -143,6 +143,113 @@
   }
 }
 
+/* Core's own palette, remapped onto the active theme for the whole application subtree.
+   Module CSS is unlayered, so these win over core's layered declarations at any specificity. */
+.atlas {
+  --color-warm-1: var(--atlas-primary, rgb(238 155 58));
+  --color-warm-2: var(--atlas-primary-hover, rgb(201 89 63));
+  --color-warm-3: var(--atlas-border, rgb(93 20 43));
+  --color-cool-3: var(--atlas-border-light, rgb(88 74 117));
+  --color-cool-4: var(--atlas-input-bg, rgb(48 40 49));
+  --color-cool-5: var(--atlas-bg, rgb(11 10 19));
+  --color-cool-5-25: color-mix(in srgb, var(--atlas-bg, rgb(11 10 19)) 25%, transparent);
+  --color-cool-5-50: color-mix(in srgb, var(--atlas-bg, rgb(11 10 19)) 50%, transparent);
+  --color-cool-5-75: color-mix(in srgb, var(--atlas-bg, rgb(11 10 19)) 75%, transparent);
+  --color-cool-5-90: color-mix(in srgb, var(--atlas-bg, rgb(11 10 19)) 90%, transparent);
+  --color-light-1: var(--atlas-text-heading, rgb(247 243 232));
+  --color-light-2: var(--atlas-text, rgb(239 230 216));
+  --color-light-3: var(--atlas-text, rgb(231 209 177));
+  --color-light-4: var(--atlas-text-secondary, rgb(208 184 163));
+  --color-light-5: var(--atlas-text-dim, rgb(159 132 117));
+  --color-light-6: var(--atlas-border, rgb(129 107 102));
+  --color-text-emphatic: var(--atlas-text-heading, inherit);
+  --color-text-primary: var(--atlas-text, inherit);
+  --color-text-secondary: var(--atlas-text-secondary, inherit);
+  --color-text-subtle: var(--atlas-text-dim, inherit);
+  --color-text-accent: var(--atlas-accent, inherit);
+  --color-text-hyperlink: var(--atlas-link, inherit);
+  --color-text-selection: var(--atlas-text-on-color, inherit);
+  --color-text-selection-bg: var(--atlas-primary, transparent);
+  --color-shadow-primary: var(--atlas-shadow-color, transparent);
+  --color-shadow-highlight: var(--atlas-primary, transparent);
+  --color-scrollbar: var(--atlas-border, transparent);
+  --color-level-error: var(--atlas-error, currentcolor);
+  --color-level-warning: var(--atlas-warning, currentcolor);
+  --color-level-success: var(--atlas-success, currentcolor);
+  --color-level-info: var(--atlas-primary, currentcolor);
+  --background: var(--atlas-bg, transparent);
+  --color-header-background: var(--atlas-bg-lighter, transparent);
+  --color-border: var(--atlas-border, currentcolor);
+  --color-tabs-border: var(--atlas-divider, currentcolor);
+  --color-fieldset-border: var(--atlas-border-light, currentcolor);
+  --color-data-border: var(--atlas-border, currentcolor);
+  --color-data-background: var(--atlas-bg-lighter, transparent);
+  --color-form-label: var(--atlas-text, inherit);
+  --color-form-label-hover: var(--atlas-text-heading, inherit);
+  --color-form-hint: var(--atlas-text-dim, inherit);
+  --color-form-hint-hover: var(--atlas-text-secondary, inherit);
+  --color-select-option-bg: var(--atlas-bg, transparent);
+}
+
+.atlas .window-content {
+  color: var(--atlas-text, inherit);
+  background: var(--atlas-bg, transparent);
+
+  /* Core declares the input, checkbox and button variables on the widgets themselves,
+     so an inherited value never reaches them; re-declare at the same level */
+  input,
+  select,
+  textarea,
+  search {
+    --input-text-color: var(--atlas-text, inherit);
+    --input-focus-text-color: var(--atlas-text, inherit);
+    --input-placeholder-color: var(--atlas-text-dim, inherit);
+    --input-background-color: var(--atlas-input-bg, transparent);
+    --input-border-color: var(--atlas-border, currentcolor);
+    --input-focus-outline-color: var(--atlas-primary, currentcolor);
+  }
+
+  select option {
+    color: var(--atlas-text, inherit);
+    background: var(--atlas-bg, transparent);
+  }
+
+  input[type='checkbox'] {
+    --checkbox-background-color: var(--atlas-input-bg, transparent);
+    --checkbox-border-color: var(--atlas-border, currentcolor);
+    --checkbox-checked-color: var(--atlas-primary, currentcolor);
+    --checkbox-checkmark-color: var(--atlas-text-on-color, currentcolor);
+    --checkbox-disabled-color: var(--atlas-text-dim, currentcolor);
+  }
+
+  a.button,
+  button {
+    --button-text-color: var(--atlas-button-text, inherit);
+    --button-background-color: var(--atlas-button-bg, transparent);
+    --button-border-color: var(--atlas-button-border, currentcolor);
+    --button-hover-text-color: var(--atlas-text-heading, inherit);
+    --button-hover-background-color: var(--atlas-button-hover, transparent);
+    --button-hover-border-color: var(--atlas-primary, currentcolor);
+    --button-focus-outline-color: var(--atlas-primary, currentcolor);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    border-color: var(--atlas-divider, currentcolor);
+    color: var(--atlas-text-heading, inherit);
+  }
+
+  a {
+    color: var(--atlas-link, inherit);
+  }
+
+  hr {
+    border-color: var(--atlas-divider, currentcolor);
+  }
+}
+
 .atlas-theme-config .window-content,
 .atlas-troubleshooter .window-content {
   max-height: 80vh;

@@ -62,7 +62,7 @@ export const DARK_COLORS = {
   weekdayHeader: '#e0e0e0'
 };
 
-/** @type {Object<string, string>} Dark Parchment - warm brown surfaces with brighter gold; lifted from Bondsmith. */
+/** @type {Object<string, string>} Amberwood - warm wood-brown surfaces with an amber-gold primary. */
 export const DARK_PARCHMENT_COLORS = {
   bg: '#2b2317',
   bgLighter: '#362c1d',
@@ -110,7 +110,7 @@ export const FROST_COLORS = {
   buttonBg: '#98b8cc',
   buttonText: '#0e1e2a',
   buttonBorder: '#6890a8',
-  primary: '#d4884f',
+  primary: '#2878a8',
   today: '#1868a0',
   accent: '#3080b0',
   error: '#b83030',
@@ -124,7 +124,7 @@ export const FROST_COLORS = {
   weekdayHeader: '#0e1e2a'
 };
 
-/** @type {Object<string, string>} Gold Parchment - warm cream surfaces with gold trim; lifted from Bondsmith. */
+/** @type {Object<string, string>} Beeswax - cream surfaces with honey-gold trim. */
 export const GOLD_PARCHMENT_COLORS = {
   bg: '#e8dcc8',
   bgLighter: '#efe4d2',
@@ -155,7 +155,7 @@ export const GOLD_PARCHMENT_COLORS = {
   weekdayHeader: '#3d3224'
 };
 
-/** @type {Object<string, string>} Hero Mancer - deep-navy backgrounds with a gold primary; lifted from Hero Mancer. */
+/** @type {Object<string, string>} Lodestar - near-black navy with a single saffron accent carrying every highlight. */
 export const HEROMANCER_COLORS = {
   bg: '#101626',
   bgLighter: '#182034',
@@ -279,7 +279,7 @@ export const LIGHT_COLORS = {
   weekdayHeader: '#2c2c2c'
 };
 
-/** @type {Object<string, string>} Minimalist - flat monochrome greys with a single red accent. */
+/** @type {Object<string, string>} Newsprint - a bleached white page ruled by near-black hairlines with a single red accent. */
 export const MINIMALIST_COLORS = {
   bg: '#ffffff',
   bgLighter: '#f5f5f5',
@@ -372,37 +372,6 @@ export const PARCHMENT_COLORS = {
   weekdayHeader: '#3c2415'
 };
 
-/** @type {Object<string, string>} Royal - deep regal backgrounds with cream text and gold accents. */
-export const ROYAL_COLORS = {
-  bg: '#0a0e1a',
-  bgLighter: '#121830',
-  bgHover: '#1a2240',
-  border: '#2a3050',
-  borderLight: '#3a4060',
-  divider: '#2a3050',
-  inputBg: '#0e1220',
-  text: '#d0c8b0',
-  textDim: '#706848',
-  textHeading: '#f0d060',
-  textSecondary: '#a09878',
-  titleText: '#f0d060',
-  buttonBg: '#161e38',
-  buttonText: '#d0c8b0',
-  buttonBorder: '#2a3050',
-  primary: '#d4a830',
-  today: '#cc2222',
-  accent: '#c09030',
-  error: '#cc3333',
-  warning: '#e0a030',
-  success: '#408848',
-  shadow: '#000000',
-  overlay: '#000000',
-  calloutBorder: '#d4a830',
-  calloutText: '#f0c848',
-  restDay: '#8090a8',
-  weekdayHeader: '#d0c8b0'
-};
-
 /** @type {Object<string, string>} Sakura - soft blush-pink surfaces with rose and plum accents. */
 export const SAKURA_COLORS = {
   bg: '#4a2838',
@@ -451,7 +420,7 @@ export const SLATE_COLORS = {
   buttonBg: '#384e42',
   buttonText: '#dedad0',
   buttonBorder: '#4a6050',
-  primary: '#8c6cb0',
+  primary: '#5d9c8e',
   today: '#ecc850',
   accent: '#c0b898',
   error: '#d86050',
@@ -496,7 +465,7 @@ export const SOLARIZED_COLORS = {
   weekdayHeader: '#839496'
 };
 
-/** @type {Object<string, string>} Spellbook - slate surfaces with a gold signature; lifted from Spell Book. */
+/** @type {Object<string, string>} Pewter - cool blue-grey surfaces with bright metal outlines and a tarnished-brass signature. */
 export const SPELLBOOK_COLORS = {
   bg: '#1b1d24',
   bgLighter: '#2a2c33',
@@ -606,7 +575,7 @@ export const VERDANT_COLORS = {
   buttonBg: '#1e3420',
   buttonText: '#c8dcc8',
   buttonBorder: '#3a5a3a',
-  primary: '#cc6688',
+  primary: '#8ab04a',
   today: '#d4a017',
   accent: '#d4a017',
   error: '#e05555',
@@ -623,21 +592,20 @@ export const VERDANT_COLORS = {
 export const THEME_PRESETS = {
   arcane: { name: 'ATLAS.Theme.Presets.Arcane', colors: ARCANE_COLORS },
   dark: { name: 'ATLAS.Theme.Presets.Dark', colors: DARK_COLORS },
-  darkParchment: { name: 'ATLAS.Theme.Presets.DarkParchment', colors: DARK_PARCHMENT_COLORS },
+  darkParchment: { name: 'ATLAS.Theme.Presets.Amberwood', colors: DARK_PARCHMENT_COLORS },
   frost: { name: 'ATLAS.Theme.Presets.Frost', colors: FROST_COLORS },
-  goldParchment: { name: 'ATLAS.Theme.Presets.GoldParchment', colors: GOLD_PARCHMENT_COLORS },
-  heromancer: { name: 'ATLAS.Theme.Presets.HeroMancer', colors: HEROMANCER_COLORS },
+  goldParchment: { name: 'ATLAS.Theme.Presets.Beeswax', colors: GOLD_PARCHMENT_COLORS },
+  heromancer: { name: 'ATLAS.Theme.Presets.Lodestar', colors: HEROMANCER_COLORS },
   highContrast: { name: 'ATLAS.Theme.Presets.HighContrast', colors: HIGH_CONTRAST_COLORS },
   infernal: { name: 'ATLAS.Theme.Presets.Infernal', colors: INFERNAL_COLORS },
   light: { name: 'ATLAS.Theme.Presets.Light', colors: LIGHT_COLORS },
-  minimalist: { name: 'ATLAS.Theme.Presets.Minimalist', colors: MINIMALIST_COLORS },
+  minimalist: { name: 'ATLAS.Theme.Presets.Newsprint', colors: MINIMALIST_COLORS },
   neon: { name: 'ATLAS.Theme.Presets.Neon', colors: NEON_COLORS },
   parchment: { name: 'ATLAS.Theme.Presets.Parchment', colors: PARCHMENT_COLORS },
-  royal: { name: 'ATLAS.Theme.Presets.Royal', colors: ROYAL_COLORS },
   sakura: { name: 'ATLAS.Theme.Presets.Sakura', colors: SAKURA_COLORS },
   slate: { name: 'ATLAS.Theme.Presets.Slate', colors: SLATE_COLORS },
   solarized: { name: 'ATLAS.Theme.Presets.Solarized', colors: SOLARIZED_COLORS },
-  spellbook: { name: 'ATLAS.Theme.Presets.Spellbook', colors: SPELLBOOK_COLORS },
+  spellbook: { name: 'ATLAS.Theme.Presets.Pewter', colors: SPELLBOOK_COLORS },
   steampunk: { name: 'ATLAS.Theme.Presets.Steampunk', colors: STEAMPUNK_COLORS },
   velvet: { name: 'ATLAS.Theme.Presets.Velvet', colors: VELVET_COLORS },
   verdant: { name: 'ATLAS.Theme.Presets.Verdant', colors: VERDANT_COLORS }
@@ -695,6 +663,16 @@ export function cssVar(key) {
 }
 
 /**
+ * Whether a color reads as a light surface, by perceived brightness.
+ * @param {string} hex  Color to measure.
+ * @returns {boolean}
+ */
+function isLight(hex) {
+  const [r, g, b] = foundry.utils.Color.fromString(hex).rgb;
+  return 0.299 * r + 0.587 * g + 0.114 * b > 0.5;
+}
+
+/**
  * Generate the derived CSS variables from a base palette.
  * @param {Object<string, string>} colors  Base palette keyed by semantic color name.
  * @returns {Object<string, string>}
@@ -704,7 +682,11 @@ export function generateDerivedColors(colors) {
   const ns = CSS_NAMESPACE;
   const { Color } = foundry.utils;
   const white = Color.fromString('#ffffff');
+  const black = Color.fromString('#000000');
   const lighten = (hex, percent) => Color.fromString(hex).mix(white, percent / 100).css;
+  const darken = (hex, percent) => Color.fromString(hex).mix(black, percent / 100).css;
+  const lightBackground = colors.bg ? isLight(colors.bg) : false;
+  const contrast = (hex, percent) => (lightBackground ? darken(hex, percent) : lighten(hex, percent));
   if (colors.today) {
     const today = Color.fromString(colors.today);
     derived[`--${ns}-highlight-bg`] = today.toRGBA(0.2);
@@ -712,8 +694,8 @@ export function generateDerivedColors(colors) {
   }
   if (colors.primary) {
     derived[`--${ns}-selected-bg`] = Color.fromString(colors.primary).toRGBA(0.15);
-    derived[`--${ns}-primary-hover`] = lighten(colors.primary, 10);
-    derived[`--${ns}-link`] = lighten(colors.primary, 15);
+    derived[`--${ns}-primary-hover`] = contrast(colors.primary, 10);
+    derived[`--${ns}-link`] = lightBackground ? darken(colors.primary, 45) : lighten(colors.primary, 15);
   }
   if (colors.shadow) {
     const shadow = Color.fromString(colors.shadow);
@@ -734,7 +716,7 @@ export function generateDerivedColors(colors) {
   }
   derived[`--${ns}-text-on-color`] = '#ffffff';
   derived[`--${ns}-text-shadow-on-color`] = 'rgb(0 0 0 / 50%)';
-  if (colors.bg && !colors.bgHover) derived[`--${ns}-bg-hover`] = lighten(colors.bg, 8);
-  if (colors.buttonBg) derived[`--${ns}-button-hover`] = lighten(colors.buttonBg, 10);
+  if (colors.bg && !colors.bgHover) derived[`--${ns}-bg-hover`] = contrast(colors.bg, 8);
+  if (colors.buttonBg) derived[`--${ns}-button-hover`] = contrast(colors.buttonBg, 10);
   return derived;
 }
