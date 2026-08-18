@@ -1,5 +1,6 @@
 import { MODULE, SETTINGS } from './constants.mjs';
 import DocsSearch from './docs-search.mjs';
+import { gmChoices } from './primary-gm.mjs';
 import ThemeConfig from './theme/theme-config.mjs';
 import { initializeThemes } from './theme/theme-engine.mjs';
 import Troubleshooter from './troubleshooter.mjs';
@@ -38,6 +39,13 @@ export default class ATLASSettings {
       scope: 'world',
       config: true,
       type: new BooleanField({ initial: true })
+    });
+    game.settings.register(MODULE.ID, SETTINGS.PRIMARY_GM, {
+      name: 'ATLAS.Settings.PrimaryGM.Name',
+      hint: 'ATLAS.Settings.PrimaryGM.Hint',
+      scope: 'world',
+      config: true,
+      type: new StringField({ required: true, blank: true, initial: '', choices: gmChoices })
     });
     game.settings.register(MODULE.ID, SETTINGS.MODULE_THEMES, { scope: 'client', config: false, type: new ObjectField({ initial: {} }) });
     game.settings.register(MODULE.ID, SETTINGS.FORCED_THEMES, { scope: 'world', config: false, type: new ObjectField({ initial: {} }), onChange: () => initializeThemes() });

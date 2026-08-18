@@ -14,7 +14,8 @@ export const SETTINGS = {
   UPDATE_NOTICES: 'updateNotices',
   CHANGELOGGER: 'changelogger',
   SEEN_VERSIONS: 'seenVersions',
-  NOTIFIED_AVAILABLE: 'notifiedAvailable'
+  NOTIFIED_AVAILABLE: 'notifiedAvailable',
+  PRIMARY_GM: 'primaryGM'
 };
 
 /** @enum {string} Custom hook event names dispatched by ATLAS */

@@ -1,4 +1,5 @@
 import { MODULE, RELAY_CHANNEL } from './constants.mjs';
+import { getPrimaryGM, isPrimaryGM } from './primary-gm.mjs';
 import { getModule } from './registry.mjs';
 import { logAs } from './utils/logger.mjs';
 
@@ -10,14 +11,6 @@ import { logAs } from './utils/logger.mjs';
  */
 function findEvent(moduleId, event) {
   return getModule(moduleId)?.events.find((declared) => declared.name === event);
-}
-
-/**
- * Whether this client is the single GM that executes GM-authoritative events.
- * @returns {boolean}
- */
-function isPrimaryGM() {
-  return game.users.activeGM?.isSelf === true;
 }
 
 /**
@@ -61,7 +54,7 @@ export function broadcast(moduleId, event, ...args) {
   if (!declared) return logAs(title, 2, `Cannot relay "${event}": not in this module's registered allowlist.`);
   const payload = { moduleId, event, args, userId: game.user.id };
   if (!declared.gmAuthoritative) return game.socket.emit(RELAY_CHANNEL, payload);
-  if (!game.users.activeGM) return logAs(title, 2, `Cannot relay "${event}": no active GM to execute it.`);
+  if (!getPrimaryGM()) return logAs(title, 2, `Cannot relay "${event}": no GM online to execute it.`);
   game.socket.emit(RELAY_CHANNEL, isPrimaryGM() ? { ...payload, relayed: true } : payload);
 }
 
