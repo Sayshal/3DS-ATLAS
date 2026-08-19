@@ -178,7 +178,10 @@ ${sel('')} {
   color: var(--${ns}-title-text);
   border-bottom: 1px solid var(--${ns}-border);
 }
-${sel(' .window-icon')},${sel(' .window-title')} {
+${sel(' .window-icon')} {
+  color: var(--${ns}-accent);
+}
+${sel(' .window-title')} {
   color: var(--${ns}-title-text);
 }
 ${sel(' button.header-control')} {
