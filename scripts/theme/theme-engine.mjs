@@ -112,6 +112,8 @@ function buildAppCss(scope) {
   const fields = ['input', 'select', 'textarea', 'code-mirror', 'formula-input', 'color-picker', 'file-picker', 'document-tags', 'string-tags'];
   const fieldSel = roots.flatMap((r) => fields.map((f) => `${r} ${f}`)).join(',');
   const optSel = roots.flatMap((r) => [`${r} select option`, `${r} select optgroup`]).join(',');
+  const checkSel = roots.flatMap((r) => [`${r} input[type='checkbox']`, `${r} input[type='radio']`]).join(',');
+  const rangeSel = roots.map((r) => `${r} input[type='range']`).join(',');
   return `
 ${sel} {
   --background: var(--${ns}-bg);
@@ -156,6 +158,17 @@ ${fieldSel} {
   --input-focus-text-color: var(--${ns}-text);
   --input-placeholder-color: var(--${ns}-text-dim);
   --input-text-color: var(--${ns}-text);
+}
+${checkSel} {
+  --checkbox-background-color: var(--${ns}-input-bg);
+  --checkbox-border-color: var(--${ns}-border);
+  --checkbox-checked-color: var(--${ns}-primary);
+  --checkbox-checkmark-color: var(--${ns}-text-on-color);
+  --checkbox-disabled-color: var(--${ns}-text-dim);
+}
+${rangeSel} {
+  --range-thumb-background-color: var(--${ns}-bg);
+  --range-thumb-border-color: var(--${ns}-primary);
 }
 ${optSel} {
   color: var(--${ns}-text);
