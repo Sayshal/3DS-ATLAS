@@ -1761,6 +1761,7 @@
   "CALENDARIA.Editor.Hint.WinterSolstice": "Date when daylight is shortest (winter solstice).",
   "CALENDARIA.Editor.Hint.YearZero": "The year that displays as year 0 when world time starts.",
   "CALENDARIA.Editor.Hint.YearZeroWeekday": "Which weekday falls on the first day of year zero.",
+  "CALENDARIA.Editor.Hint.YearZeroWeekdaySystemManaged": "The game system's world clock sets this weekday. Clear the System WorldClock Theme on the Overview tab to set it yourself.",
   "CALENDARIA.Editor.Inserts.Group.actions": "Actions",
   "CALENDARIA.Editor.Inserts.Group.calendar": "Calendar",
   "CALENDARIA.Editor.Inserts.Group.composite": "Composite",
