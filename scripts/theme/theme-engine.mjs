@@ -114,6 +114,7 @@ function buildAppCss(scope) {
   const optSel = roots.flatMap((r) => [`${r} select option`, `${r} select optgroup`]).join(',');
   const checkSel = roots.flatMap((r) => [`${r} input[type='checkbox']`, `${r} input[type='radio']`]).join(',');
   const rangeSel = roots.map((r) => `${r} input[type='range']`).join(',');
+  const btnSel = roots.map((r) => `${r} :is(a.button, button, kbd)`).join(',');
   return `
 ${sel} {
   --background: var(--${ns}-bg);
@@ -139,13 +140,6 @@ ${sel} {
   --color-text-selection: var(--${ns}-text-on-color);
   --color-text-selection-bg: var(--${ns}-primary);
   --color-text-subtle: var(--${ns}-text-secondary);
-  --button-background-color: var(--${ns}-button-bg);
-  --button-border-color: var(--${ns}-button-border);
-  --button-focus-outline-color: var(--${ns}-primary);
-  --button-hover-background-color: var(--${ns}-button-hover);
-  --button-hover-border-color: var(--${ns}-primary);
-  --button-hover-text-color: var(--${ns}-button-text);
-  --button-text-color: var(--${ns}-button-text);
   --content-link-background: var(--${ns}-surface-dim-25);
   --content-link-border-color: var(--${ns}-border);
   --content-link-icon-color: var(--${ns}-text-dim);
@@ -158,6 +152,15 @@ ${fieldSel} {
   --input-focus-text-color: var(--${ns}-text);
   --input-placeholder-color: var(--${ns}-text-dim);
   --input-text-color: var(--${ns}-text);
+}
+${btnSel} {
+  --button-background-color: var(--${ns}-button-bg);
+  --button-border-color: var(--${ns}-button-border);
+  --button-focus-outline-color: var(--${ns}-primary);
+  --button-hover-background-color: var(--${ns}-button-hover);
+  --button-hover-border-color: var(--${ns}-primary);
+  --button-hover-text-color: var(--${ns}-button-text);
+  --button-text-color: var(--${ns}-button-text);
 }
 ${checkSel} {
   --checkbox-background-color: var(--${ns}-input-bg);
