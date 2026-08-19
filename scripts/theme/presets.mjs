@@ -715,7 +715,7 @@ export function generateDerivedColors(colors) {
     derived[`--${ns}-surface-dim-75`] = surface.toRGBA(0.75);
   }
   const onColorIsDark = colors.primary ? isLight(colors.primary) : false;
-  derived[`--${ns}-text-on-color`] = onColorIsDark ? colors.buttonText || colors.textHeading || '#000000' : '#ffffff';
+  derived[`--${ns}-text-on-color`] = onColorIsDark ? '#000000' : '#ffffff';
   derived[`--${ns}-text-shadow-on-color`] = onColorIsDark ? 'rgb(255 255 255 / 45%)' : 'rgb(0 0 0 / 50%)';
   if (colors.bg && !colors.bgHover) derived[`--${ns}-bg-hover`] = contrast(colors.bg, 8);
   if (colors.buttonBg) derived[`--${ns}-button-hover`] = contrast(colors.buttonBg, 10);
