@@ -23,7 +23,7 @@ export default class ATLASSettings {
         required: true,
         blank: false,
         initial: '2',
-        choices: { 0: 'ATLAS.Settings.LoggingLevel.Off', 1: 'ATLAS.Settings.LoggingLevel.Errors', 2: 'ATLAS.Settings.LoggingLevel.Warnings', 3: 'ATLAS.Settings.LoggingLevel.Verbose' }
+        choices: { 0: 'ATLAS.Common.Off', 1: 'ATLAS.Settings.LoggingLevel.Errors', 2: 'ATLAS.Settings.LoggingLevel.Warnings', 3: 'ATLAS.Settings.LoggingLevel.Verbose' }
       })
     });
     game.settings.register(MODULE.ID, SETTINGS.UPDATE_NOTICES, {

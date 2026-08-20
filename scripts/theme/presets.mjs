@@ -591,7 +591,7 @@ export const VERDANT_COLORS = {
 
 export const THEME_PRESETS = {
   arcane: { name: 'ATLAS.Theme.Presets.Arcane', colors: ARCANE_COLORS },
-  dark: { name: 'ATLAS.Theme.Presets.Dark', colors: DARK_COLORS },
+  dark: { name: 'ATLAS.Common.Dark', colors: DARK_COLORS },
   darkParchment: { name: 'ATLAS.Theme.Presets.Amberwood', colors: DARK_PARCHMENT_COLORS },
   frost: { name: 'ATLAS.Theme.Presets.Frost', colors: FROST_COLORS },
   goldParchment: { name: 'ATLAS.Theme.Presets.Beeswax', colors: GOLD_PARCHMENT_COLORS },
@@ -620,7 +620,7 @@ export const COLOR_DEFINITIONS = [
   { key: 'divider', label: 'ATLAS.Theme.Colors.Divider', category: 'borders' },
   { key: 'border', label: 'ATLAS.Theme.Colors.Border', category: 'borders' },
   { key: 'borderLight', label: 'ATLAS.Theme.Colors.BorderLight', category: 'borders' },
-  { key: 'text', label: 'ATLAS.Theme.Colors.Text', category: 'text' },
+  { key: 'text', label: 'ATLAS.Common.Text', category: 'text' },
   { key: 'textDim', label: 'ATLAS.Theme.Colors.TextDim', category: 'text' },
   { key: 'textHeading', label: 'ATLAS.Theme.Colors.TextHeading', category: 'text' },
   { key: 'textSecondary', label: 'ATLAS.Theme.Colors.TextSecondary', category: 'text' },
@@ -631,12 +631,12 @@ export const COLOR_DEFINITIONS = [
   { key: 'primary', label: 'ATLAS.Theme.Colors.Primary', category: 'accents' },
   { key: 'today', label: 'ATLAS.Theme.Colors.Highlight', category: 'accents' },
   { key: 'accent', label: 'ATLAS.Theme.Colors.Accent', category: 'accents' },
-  { key: 'error', label: 'ATLAS.Theme.Colors.Error', category: 'accents' },
+  { key: 'error', label: 'ATLAS.Common.Error', category: 'accents' },
   { key: 'warning', label: 'ATLAS.Theme.Colors.Warning', category: 'accents' },
   { key: 'success', label: 'ATLAS.Theme.Colors.Success', category: 'accents' },
   { key: 'calloutBorder', label: 'ATLAS.Theme.Colors.CalloutBorder', category: 'callouts' },
   { key: 'calloutText', label: 'ATLAS.Theme.Colors.CalloutText', category: 'callouts' },
-  { key: 'restDay', label: 'ATLAS.Theme.Colors.RestDay', category: 'callouts' },
+  { key: 'restDay', label: 'ATLAS.Common.RestDay', category: 'callouts' },
   { key: 'weekdayHeader', label: 'ATLAS.Theme.Colors.WeekdayHeader', category: 'callouts' },
   { key: 'shadow', label: 'ATLAS.Theme.Colors.Shadow', category: 'effects' },
   { key: 'overlay', label: 'ATLAS.Theme.Colors.Overlay', category: 'effects' }
@@ -646,7 +646,7 @@ export const COLOR_DEFINITIONS = [
 export const COLOR_CATEGORIES = {
   backgrounds: 'ATLAS.Theme.Category.Backgrounds',
   borders: 'ATLAS.Theme.Category.Borders',
-  text: 'ATLAS.Theme.Category.Text',
+  text: 'ATLAS.Common.Text',
   buttons: 'ATLAS.Theme.Category.Buttons',
   accents: 'ATLAS.Theme.Category.Accents',
   callouts: 'ATLAS.Theme.Category.Callouts',

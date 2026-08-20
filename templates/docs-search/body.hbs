@@ -1,7 +1,7 @@
 <div class="atlas-docs-search-body">
   {{#if available}}
     <div class="form-group">
-      <label for="atlas-docs-scope">{{localize "ATLAS.DocsSearch.Scope"}}</label>
+      <label for="atlas-docs-scope">{{localize "ATLAS.Common.Module"}}</label>
       <div class="form-fields">
         <select id="atlas-docs-scope" name="atlas-docs-scope">
           {{#each options as |o|}}
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="atlas-docs-query">{{localize "ATLAS.DocsSearch.Label"}}</label>
+      <label for="atlas-docs-query">{{localize "ATLAS.Common.Search"}}</label>
       <div class="form-fields">
         <input type="search" id="atlas-docs-query" name="atlas-docs-query"
           placeholder="{{localize 'ATLAS.DocsSearch.Placeholder'}}" autocomplete="off">

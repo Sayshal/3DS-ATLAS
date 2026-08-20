@@ -66,8 +66,8 @@ export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV
       defaultLabel,
       isDefault: !selected || selected === 'none',
       groups: [
-        { group: 'ATLAS.Theme.Group.Presets', choices: presetChoices.map((c) => ({ ...c, selected: c.key === selected })) },
-        { group: 'ATLAS.Theme.Group.Custom', choices: customChoices.map((c) => ({ ...c, selected: c.key === selected })) }
+        { group: 'ATLAS.Common.Presets', choices: presetChoices.map((c) => ({ ...c, selected: c.key === selected })) },
+        { group: 'ATLAS.Common.Custom', choices: customChoices.map((c) => ({ ...c, selected: c.key === selected })) }
       ]
     });
 
@@ -76,12 +76,12 @@ export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV
       if (!entry.theme?.scope) continue;
       const sel = selections[entry.id] || {};
       const moduleWide = sel.theme || 'none';
-      const apps = getAppScopes(entry.theme).map((app) => ({ key: app.key, label: app.label, select: buildSelect(sel.apps?.[app.key] || 'none', 'ATLAS.Theme.Inherit') }));
+      const apps = getAppScopes(entry.theme).map((app) => ({ key: app.key, label: app.label, select: buildSelect(sel.apps?.[app.key] || 'none', 'ATLAS.Common.Inherit') }));
       modules.push({
         id: entry.id,
         title: entry.title,
         swatch: moduleWide === 'none' ? null : getColorsForTheme(moduleWide).bg,
-        select: buildSelect(moduleWide, 'ATLAS.Theme.Default'),
+        select: buildSelect(moduleWide, 'ATLAS.Common.Default'),
         forced: !!getForcedTheme(entry.id),
         apps
       });
