@@ -4124,7 +4124,6 @@
   "HEROMANCER.LevelUp.Source.SameTooltip": "These classes match the ruleset of your existing class.",
   "HEROMANCER.LevelUp.Subclass.Legend": "Choose a subclass for {name}",
   "HEROMANCER.LevelUp.TotalLevel": "Current Level: {level}",
-  "HEROMANCER.Migration.RefreshNotice": "Hero Mancer 2 cleaned up settings left over from a previous version. Reload the world for all changes to take effect.",
   "HEROMANCER.Settings.AbilityScores.Default.Hint": "The starting value for ability scores when creating a new character.",
   "HEROMANCER.Settings.AbilityScores.Default.Name": "Default Ability Score",
   "HEROMANCER.Settings.AbilityScores.Max.Hint": "The highest value allowed for ability scores during character creation.",

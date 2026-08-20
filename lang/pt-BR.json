@@ -2860,7 +2860,6 @@
   "HEROMANCER.LevelUp.Source.SameTooltip": "Estas classes correspondem ao conjunto de regras da sua classe existente.",
   "HEROMANCER.LevelUp.Subclass.Legend": "Escolha uma subclasse para {name}",
   "HEROMANCER.LevelUp.TotalLevel": "Nível Atual: {level}",
-  "HEROMANCER.Migration.RefreshNotice": "Hero Mancer 2 limpou configurações remanescentes de uma versão anterior. Atualize seu navegador (F5) para que todas as alterações entrem em vigor.",
   "HEROMANCER.Settings.AbilityScores.Default.Hint": "O valor inicial dos atributos ao criar um novo personagem.",
   "HEROMANCER.Settings.AbilityScores.Default.Name": "Valor Padrão de Atributo",
   "HEROMANCER.Settings.AbilityScores.Max.Hint": "O maior valor permitido para atributos durante a criação de personagem.",
