@@ -201,9 +201,12 @@ ${sel(' .window-title')} {
   color: var(--${ns}-title-text);
 }
 ${sel(' button.header-control')} {
+  --button-background-color: none;
+  --button-border-color: transparent;
   --button-text-color: var(--${ns}-title-text);
   --button-hover-text-color: var(--${ns}-primary);
   --button-hover-background-color: var(--${ns}-bg-hover);
+  --button-hover-border-color: transparent;
 }`;
 }
 
@@ -253,10 +256,11 @@ function writeModuleBlocks(moduleId, docs) {
   const mod = getModule(moduleId);
   if (!mod?.theme?.scope) return null;
   const selection = getModuleThemes()[moduleId] || {};
-  const mainTheme = getForcedTheme(moduleId) || selection.theme || mod.theme.default || 'dark';
+  const picked = (key) => (key && key !== 'none' ? key : null);
+  const mainTheme = picked(getForcedTheme(moduleId)) || picked(selection.theme) || picked(mod.theme.default) || 'dark';
   writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}`, mod.theme.scope, mainTheme, docs);
   for (const app of getAppScopes(mod.theme))
-    writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, selection.apps?.[app.key] || mod.theme.apps?.[app.key]?.default || mainTheme, docs);
+    writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, picked(selection.apps?.[app.key]) || picked(mod.theme.apps?.[app.key]?.default) || mainTheme, docs);
   return selection;
 }
 
