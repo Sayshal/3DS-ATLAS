@@ -742,6 +742,7 @@
   "BONDSMITH.Notifications.RollTableMismatch": "The Roll Table has {tableRows} rows, but the active preset expects {presetTiers} tiers.",
   "BONDSMITH.Notifications.SettingsSaved": "Settings saved.",
   "BONDSMITH.Notifications.TimelineNotInitialized": "Timeline not initialized.",
+  "BONDSMITH.Notifications.WriteDropped": "Part of that change was not permitted and has been discarded.",
   "BONDSMITH.Party.AllGroupActorsLinked": "All group actors are already linked to a faction.",
   "BONDSMITH.Party.CannotDuplicate": "The active party faction cannot be duplicated.",
   "BONDSMITH.Party.DefaultName": "Adventuring Party",
