@@ -5716,6 +5716,7 @@
   "SNOOT.Tooltip.Search": "Filter entries by name, key, or value",
   "SNOOT.Tooltip.Stale": "Key not declared by its module, usually because it was renamed or removed",
   "SNOOT.Tooltip.Toggle": "Expand or collapse this group",
+  "SNOOT.Tooltip.Unremovable": "This document fails validation, so Foundry rejects every update to it. Its flags stay until the module that defines its type is reinstalled.",
   "SNOOT.Users.ClientCaveat": "Client settings are stored in this browser only. Each player must log in and run Snoot on their own machine to see and clear their copies.",
   "SNOOT.Users.ClientStorage": "This Browser",
   "SNOOT.Users.PlayerScope": "See and clear your own user flags and settings plus the client settings stored in this browser. Everything else is the GM's to clean.",
