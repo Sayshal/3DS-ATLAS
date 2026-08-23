@@ -1,5 +1,6 @@
 import { MODULE } from './constants.mjs';
 import { buildReport, dnd5eSourceLines, reportToMarkdown } from './diagnostics.mjs';
+import { getPrimaryGM, isPrimaryGM } from './primary-gm.mjs';
 import { getModule, getRegisteredModules, register } from './registry.mjs';
 import { THEME_PRESETS } from './theme/presets.mjs';
 import {
@@ -39,6 +40,14 @@ export const ATLASAPI = {
   getModule,
   getRegisteredModules,
   log: moduleLog,
+  /** @returns {object|null} The GM that executes suite automation, or null when no GM is online. */
+  get primaryGM() {
+    return getPrimaryGM();
+  },
+  /** @returns {boolean} Whether this client is the GM that executes suite automation. */
+  get isPrimaryGM() {
+    return isPrimaryGM();
+  },
   theme: {
     presets: THEME_PRESETS,
     getColorsForTheme,

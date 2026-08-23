@@ -11,29 +11,16 @@
   "changelog": "https://github.com/Sayshal/3ds-atlas/releases",
   "compatibility": {
     "minimum": "14",
-    "verified": "14.364"
+    "verified": "14.367"
   },
   "description": "One dependency behind every 3 Death Saves module. It gives them a shared theme engine, update notices, logging, and a troubleshooter, so no module ships its own copy. On its own it shows nothing; the others are built on it.",
   "download": "",
-  "esmodules": [
-    "3ds-atlas.mjs"
-  ],
-  "styles": [
-    "styles/3ds-atlas.css"
-  ],
+  "esmodules": ["3ds-atlas.mjs"],
+  "styles": ["styles/3ds-atlas.css"],
   "flags": {
     "hotReload": {
-      "extensions": [
-        "css",
-        "html",
-        "hbs",
-        "json"
-      ],
-      "paths": [
-        "styles",
-        "lang",
-        "templates"
-      ]
+      "extensions": ["css", "html", "hbs", "json"],
+      "paths": ["styles", "lang", "templates"]
     }
   },
   "id": "3ds-atlas",

@@ -14,7 +14,8 @@ export const SETTINGS = {
   UPDATE_NOTICES: 'updateNotices',
   CHANGELOGGER: 'changelogger',
   SEEN_VERSIONS: 'seenVersions',
-  NOTIFIED_AVAILABLE: 'notifiedAvailable'
+  NOTIFIED_AVAILABLE: 'notifiedAvailable',
+  PRIMARY_GM: 'primaryGM'
 };
 
 /** @enum {string} Custom hook event names dispatched by ATLAS */
@@ -23,6 +24,9 @@ export const HOOKS = {
   REGISTERED: `${MODULE.ID}.moduleRegistered`,
   THEME_CHANGED: `${MODULE.ID}.themeChanged`
 };
+
+/** @type {string} Socket channel used by the cross-client event relay. */
+export const RELAY_CHANNEL = `module.${MODULE.ID}`;
 
 /** @type {string} DOM id prefix + CSS var namespace shared by every consuming module. */
 export const CSS_NAMESPACE = 'atlas';

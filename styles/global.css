@@ -1,21 +1,3 @@
-:root {
-  --atlas-surface-bg: rgb(255 255 255 / 5%);
-  --atlas-surface-border: rgb(255 255 255 / 15%);
-  --atlas-surface-divider: rgb(255 255 255 / 10%);
-  --atlas-surface-link: rgb(107 168 240);
-  --atlas-surface-text: rgb(235 235 235);
-  --atlas-surface-text-dim: rgb(175 175 175);
-}
-
-.theme-light {
-  --atlas-surface-bg: rgb(0 0 0 / 5%);
-  --atlas-surface-border: rgb(0 0 0 / 15%);
-  --atlas-surface-divider: rgb(0 0 0 / 10%);
-  --atlas-surface-link: rgb(40 112 194);
-  --atlas-surface-text: rgb(30 30 30);
-  --atlas-surface-text-dim: rgb(90 90 90);
-}
-
 .atlas-update-notice {
   .window-content {
     gap: 0.75rem;
@@ -23,7 +5,7 @@
   }
 
   a {
-    color: var(--atlas-surface-link);
+    color: var(--atlas-link);
   }
 
   .atlas-update-tabs {
@@ -32,19 +14,19 @@
     flex: 0 0 auto;
     flex-direction: column;
     padding-right: 0.75rem;
-    border-right: thin solid var(--atlas-surface-divider);
+    border-right: thin solid var(--atlas-divider);
   }
 
   .atlas-update-tab {
     padding: 0.25rem 0.5rem;
     border-left: 0.125rem solid transparent;
-    color: var(--atlas-surface-text-dim);
+    color: var(--atlas-text-dim);
     cursor: pointer;
   }
 
   .atlas-update-tab.active {
-    border-left-color: var(--atlas-surface-link);
-    color: var(--atlas-surface-text);
+    border-left-color: var(--atlas-link);
+    color: var(--atlas-text);
   }
 
   .atlas-update-content {
@@ -60,6 +42,6 @@
   }
 
   .atlas-update-empty {
-    color: var(--atlas-surface-text-dim);
+    color: var(--atlas-text-dim);
   }
 }

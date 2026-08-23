@@ -1,6 +1,6 @@
 import { CSS_NAMESPACE, HOOKS, MODULE, SETTINGS } from '../constants.mjs';
 import { getModule, getRegisteredModules } from '../registry.mjs';
-import { cssVar, DARK_COLORS, generateDerivedColors, THEME_PRESETS } from './presets.mjs';
+import { cssVar, DARK_COLORS, generateDerivedColors, isLight, THEME_PRESETS } from './presets.mjs';
 
 /**
  * Read the per-module theme selection map.
@@ -92,28 +92,176 @@ function buildScopedCss(scope, colors) {
   const decls = [];
   for (const [key, value] of Object.entries(colors)) if (value) decls.push(`${cssVar(key)}: ${value};`);
   for (const [name, value] of Object.entries(generateDerivedColors(colors))) decls.push(`${name}: ${value};`);
-  return `${scope} {\n  ${decls.join('\n  ')}\n}`;
+  decls.push(`color-scheme: ${colors.bg && isLight(colors.bg) ? 'light' : 'dark'};`);
+  decls.push(`--color-scrollbar: var(${cssVar('border')});`);
+  return `${scope} {\n  ${decls.join('\n  ')}\n}${buildAppCss(scope)}${buildHeaderCss(scope)}`;
 }
 
 /**
- * Write or clear one scoped `<style>` element.
+ * Bridge Foundry's own themeable custom properties to the scope's ATLAS vars, so core-styled
+ * chrome inside a framed application follows the picked theme without per-module overrides.
+ * Emitted through `:where()` so it outranks core's `.application` defaults while any rule a
+ * module writes for itself still wins.
+ * @param {string} scope  CSS selector
+ * @returns {string}
+ */
+function buildAppCss(scope) {
+  const ns = CSS_NAMESPACE;
+  const roots = scope.split(',').map((s) => `:where(${s.trim()}).application`);
+  const sel = roots.join(',');
+  const fields = ['input', 'select', 'textarea', 'code-mirror', 'formula-input', 'color-picker', 'file-picker', 'document-tags', 'string-tags'];
+  const fieldSel = roots.flatMap((r) => fields.map((f) => `${r} ${f}`)).join(',');
+  const optSel = roots.flatMap((r) => [`${r} select option`, `${r} select optgroup`]).join(',');
+  const checkSel = roots.flatMap((r) => [`${r} input[type='checkbox']`, `${r} input[type='radio']`]).join(',');
+  const rangeSel = roots.map((r) => `${r} input[type='range']`).join(',');
+  const btnSel = roots.map((r) => `${r} :is(a.button, button, kbd)`).join(',');
+  return `
+${sel} {
+  --background: var(--${ns}-bg);
+  --color-border: var(--${ns}-border);
+  --color-data-background: var(--${ns}-bg-lighter);
+  --color-data-border: var(--${ns}-border);
+  --color-fieldset-border: var(--${ns}-border);
+  --color-form-hint: var(--${ns}-text-secondary);
+  --color-form-hint-hover: var(--${ns}-text);
+  --color-form-label: var(--${ns}-text);
+  --color-form-label-hover: var(--${ns}-text-heading);
+  --color-level-error: var(--${ns}-error);
+  --color-level-info: var(--${ns}-primary);
+  --color-level-success: var(--${ns}-success);
+  --color-level-warning: var(--${ns}-warning);
+  --color-shadow-primary: var(--${ns}-primary);
+  --color-select-option-bg: var(--${ns}-bg-lighter);
+  --color-tabs-border: var(--${ns}-border);
+  --color-text-accent: var(--${ns}-accent);
+  --color-text-emphatic: var(--${ns}-text-heading);
+  --color-text-primary: var(--${ns}-text);
+  --color-text-secondary: var(--${ns}-text-secondary);
+  --color-text-selection: var(--${ns}-text-on-color);
+  --color-text-selection-bg: var(--${ns}-primary);
+  --color-text-subtle: var(--${ns}-text-secondary);
+  --content-link-background: var(--${ns}-surface-dim-25);
+  --content-link-border-color: var(--${ns}-border);
+  --content-link-icon-color: var(--${ns}-text-dim);
+  --content-link-text-color: var(--${ns}-link);
+}
+${fieldSel} {
+  --input-background-color: var(--${ns}-input-bg);
+  --input-border-color: var(--${ns}-border);
+  --input-focus-outline-color: var(--${ns}-primary);
+  --input-focus-text-color: var(--${ns}-text);
+  --input-placeholder-color: var(--${ns}-text-dim);
+  --input-text-color: var(--${ns}-text);
+}
+${btnSel} {
+  --button-background-color: var(--${ns}-button-bg);
+  --button-border-color: var(--${ns}-button-border);
+  --button-focus-outline-color: var(--${ns}-primary);
+  --button-hover-background-color: var(--${ns}-button-hover);
+  --button-hover-border-color: var(--${ns}-primary);
+  --button-hover-text-color: var(--${ns}-button-text);
+  --button-text-color: var(--${ns}-button-text);
+}
+${checkSel} {
+  --checkbox-background-color: var(--${ns}-input-bg);
+  --checkbox-border-color: var(--${ns}-border);
+  --checkbox-checked-color: var(--${ns}-primary);
+  --checkbox-checkmark-color: var(--${ns}-text-on-color);
+  --checkbox-disabled-color: var(--${ns}-text-dim);
+}
+${rangeSel} {
+  --range-thumb-background-color: var(--${ns}-bg);
+  --range-thumb-border-color: var(--${ns}-primary);
+}
+${optSel} {
+  color: var(--${ns}-text);
+  background: var(--${ns}-bg-lighter);
+}`;
+}
+
+/**
+ * Build the window-frame rules for a scope.
+ * @param {string} scope  CSS selector
+ * @returns {string}
+ */
+function buildHeaderCss(scope) {
+  const ns = CSS_NAMESPACE;
+  const roots = scope.split(',').map((s) => s.trim());
+  const sel = (suffix) => roots.map((r) => `${r} > .window-header${suffix}`).join(',');
+  return `
+${sel('')} {
+  background: var(--${ns}-bg-lighter);
+  color: var(--${ns}-title-text);
+  border-bottom: 1px solid var(--${ns}-border);
+}
+${sel(' .window-icon')} {
+  color: var(--${ns}-accent);
+}
+${sel(' .window-title')} {
+  color: var(--${ns}-title-text);
+}
+${sel(' button.header-control')} {
+  --button-background-color: none;
+  --button-border-color: transparent;
+  --button-text-color: var(--${ns}-title-text);
+  --button-hover-text-color: var(--${ns}-primary);
+  --button-hover-background-color: var(--${ns}-bg-hover);
+  --button-hover-border-color: transparent;
+}`;
+}
+
+/**
+ * Every document theme blocks must be written to: the main window plus any open detached window.
+ * @returns {Document[]}
+ */
+function themeDocuments() {
+  const docs = [document];
+  for (const { window: win } of foundry.applications.detached?.windows?.values() ?? []) if (win && !win.closed) docs.push(win.document);
+  return docs;
+}
+
+/**
+ * Write or clear one scoped `<style>` element in each target document.
+ * Resolving by id upserts in place, so repeated detach cycles never duplicate nodes.
  * @param {string} elId        Style element id
  * @param {string} scope       CSS selector
  * @param {string} [themeKey]  Theme key; omit or 'none' to clear
+ * @param {Document[]} [docs]  Target documents; defaults to main plus detached
  * @returns {void}
  */
-function writeBlock(elId, scope, themeKey) {
-  let styleEl = document.getElementById(elId);
-  if (!themeKey || themeKey === 'none') {
-    styleEl?.remove();
-    return;
+function writeBlock(elId, scope, themeKey, docs = themeDocuments()) {
+  const css = !themeKey || themeKey === 'none' ? null : buildScopedCss(scope, getColorsForTheme(themeKey));
+  for (const doc of docs) {
+    let styleEl = doc.getElementById(elId);
+    if (!css) {
+      styleEl?.remove();
+      continue;
+    }
+    if (!styleEl) {
+      styleEl = doc.createElement('style');
+      styleEl.id = elId;
+      doc.head.appendChild(styleEl);
+    }
+    styleEl.textContent = css;
   }
-  if (!styleEl) {
-    styleEl = document.createElement('style');
-    styleEl.id = elId;
-    document.head.appendChild(styleEl);
-  }
-  styleEl.textContent = buildScopedCss(scope, getColorsForTheme(themeKey));
+}
+
+/**
+ * Write a registered module's theme blocks without announcing a change.
+ * @param {string} moduleId    Registered module id
+ * @param {Document[]} [docs]  Target documents; defaults to main plus detached
+ * @returns {object|null} The module's theme selection, or null when it has no themeable scope
+ */
+function writeModuleBlocks(moduleId, docs) {
+  const mod = getModule(moduleId);
+  if (!mod?.theme?.scope) return null;
+  const selection = getModuleThemes()[moduleId] || {};
+  const picked = (key) => (key && key !== 'none' ? key : null);
+  const mainTheme = picked(getForcedTheme(moduleId)) || picked(selection.theme) || picked(mod.theme.default) || 'dark';
+  writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}`, mod.theme.scope, mainTheme, docs);
+  for (const app of getAppScopes(mod.theme))
+    writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, picked(selection.apps?.[app.key]) || picked(mod.theme.apps?.[app.key]?.default) || mainTheme, docs);
+  return selection;
 }
 
 /**
@@ -122,13 +270,18 @@ function writeBlock(elId, scope, themeKey) {
  * @returns {void}
  */
 export function applyModuleTheme(moduleId) {
-  const mod = getModule(moduleId);
-  if (!mod?.theme?.scope) return;
-  const selection = getModuleThemes()[moduleId] || {};
-  const mainTheme = getForcedTheme(moduleId) || selection.theme || mod.theme.default || 'dark';
-  writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}`, mod.theme.scope, mainTheme);
-  for (const app of getAppScopes(mod.theme)) writeBlock(`${CSS_NAMESPACE}-theme-${moduleId}-${app.key}`, app.selector, selection.apps?.[app.key] || mod.theme.apps?.[app.key]?.default || mainTheme);
-  Hooks.callAll(HOOKS.THEME_CHANGED, { moduleId, selection });
+  const selection = writeModuleBlocks(moduleId);
+  if (selection) Hooks.callAll(HOOKS.THEME_CHANGED, { moduleId, selection });
+}
+
+/**
+ * Apply every registered module's theme blocks into a newly detached window.
+ * @param {Window} win  The detached window
+ * @returns {void}
+ */
+export function syncDetachedWindow(win) {
+  if (!win || win.closed) return;
+  for (const moduleId of getRegisteredModules().keys()) writeModuleBlocks(moduleId, [win.document]);
 }
 
 /**

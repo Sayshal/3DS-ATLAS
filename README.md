@@ -16,6 +16,8 @@
 - **Update notices**: drops a chat message when a newer version of a 3DS module is out.
 - **Troubleshooter**: scoped diagnostics you can export for a bug report.
 - **Logging**: one level-controlled logger the modules share.
+- **Primary GM**: names the one GM client that runs suite automation, so a second connected GM does not duplicate it.
+- **Event relay**: re-fires a module's allowlisted hooks on every client, optionally through a single GM.
 
 ---
 

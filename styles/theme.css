@@ -1,7 +1,7 @@
 .atlas-theme-config {
   .notes {
     margin: 0 0 0.5rem;
-    color: var(--atlas-text-secondary, rgb(170 170 170));
+    color: var(--atlas-text-secondary);
   }
 
   .atlas-module-list {
@@ -15,10 +15,10 @@
     width: 0.75rem;
     height: 0.75rem;
     margin-right: 0.35rem;
-    border: thin solid var(--atlas-border, rgb(74 74 74));
+    border: thin solid var(--atlas-border);
     border-radius: 50%;
     vertical-align: middle;
-    background: var(--atlas-swatch, transparent);
+    background: var(--atlas-swatch);
   }
 
   .atlas-force {
@@ -31,8 +31,8 @@
     padding-left: 1.25rem;
 
     > label {
-      color: var(--atlas-text-secondary, rgb(170 170 170));
-      font-size: var(--font-size-13, 0.8125rem);
+      color: var(--atlas-text-secondary);
+      font-size: var(--font-size-13);
     }
   }
 
@@ -40,18 +40,18 @@
     width: 100%;
     margin: 0.35rem 0;
     border: none;
-    border-top: thin solid var(--atlas-border, rgb(74 74 74));
+    border-top: thin solid var(--atlas-border);
   }
 
   .atlas-empty {
-    color: var(--atlas-text-dim, rgb(153 153 153));
+    color: var(--atlas-text-dim);
     font-style: italic;
   }
 
   .atlas-custom-section {
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    border-top: thin solid var(--atlas-divider, rgb(65 65 65));
+    border-top: thin solid var(--atlas-divider);
   }
 
   .atlas-custom-list {
@@ -102,7 +102,7 @@
     justify-content: flex-end;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    border-top: thin solid var(--atlas-divider, rgb(65 65 65));
+    border-top: thin solid var(--atlas-divider);
   }
 }
 
@@ -123,12 +123,12 @@
   .atlas-color-group {
     margin-bottom: 0.5rem;
     padding: 0.5rem 0.75rem;
-    border: thin solid var(--atlas-border-light, rgb(58 58 58));
+    border: thin solid var(--atlas-border-light);
     border-radius: 0.25rem;
 
     legend {
       padding: 0 0.35rem;
-      color: var(--atlas-text-heading, rgb(238 238 238));
+      color: var(--atlas-text-heading);
       font-weight: 600;
     }
   }
@@ -139,7 +139,114 @@
     justify-content: flex-end;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    border-top: thin solid var(--atlas-divider, rgb(65 65 65));
+    border-top: thin solid var(--atlas-divider);
+  }
+}
+
+/* Core's own palette, remapped onto the active theme for the whole application subtree.
+   Module CSS is unlayered, so these win over core's layered declarations at any specificity. */
+.atlas {
+  --color-warm-1: var(--atlas-primary);
+  --color-warm-2: var(--atlas-primary-hover);
+  --color-warm-3: var(--atlas-border);
+  --color-cool-3: var(--atlas-border-light);
+  --color-cool-4: var(--atlas-input-bg);
+  --color-cool-5: var(--atlas-bg);
+  --color-cool-5-25: color-mix(in srgb, var(--atlas-bg) 25%, transparent);
+  --color-cool-5-50: color-mix(in srgb, var(--atlas-bg) 50%, transparent);
+  --color-cool-5-75: color-mix(in srgb, var(--atlas-bg) 75%, transparent);
+  --color-cool-5-90: color-mix(in srgb, var(--atlas-bg) 90%, transparent);
+  --color-light-1: var(--atlas-text-heading);
+  --color-light-2: var(--atlas-text);
+  --color-light-3: var(--atlas-text);
+  --color-light-4: var(--atlas-text-secondary);
+  --color-light-5: var(--atlas-text-dim);
+  --color-light-6: var(--atlas-border);
+  --color-text-emphatic: var(--atlas-text-heading);
+  --color-text-primary: var(--atlas-text);
+  --color-text-secondary: var(--atlas-text-secondary);
+  --color-text-subtle: var(--atlas-text-dim);
+  --color-text-accent: var(--atlas-accent);
+  --color-text-hyperlink: var(--atlas-link);
+  --color-text-selection: var(--atlas-text-on-color);
+  --color-text-selection-bg: var(--atlas-primary);
+  --color-shadow-primary: var(--atlas-shadow-color);
+  --color-shadow-highlight: var(--atlas-primary);
+  --color-scrollbar: var(--atlas-border);
+  --color-level-error: var(--atlas-error);
+  --color-level-warning: var(--atlas-warning);
+  --color-level-success: var(--atlas-success);
+  --color-level-info: var(--atlas-primary);
+  --background: var(--atlas-bg);
+  --color-header-background: var(--atlas-bg-lighter);
+  --color-border: var(--atlas-border);
+  --color-tabs-border: var(--atlas-divider);
+  --color-fieldset-border: var(--atlas-border-light);
+  --color-data-border: var(--atlas-border);
+  --color-data-background: var(--atlas-bg-lighter);
+  --color-form-label: var(--atlas-text);
+  --color-form-label-hover: var(--atlas-text-heading);
+  --color-form-hint: var(--atlas-text-dim);
+  --color-form-hint-hover: var(--atlas-text-secondary);
+  --color-select-option-bg: var(--atlas-bg);
+}
+
+.atlas .window-content {
+  color: var(--atlas-text);
+  background: var(--atlas-bg);
+
+  /* Core declares the input, checkbox and button variables on the widgets themselves,
+     so an inherited value never reaches them; re-declare at the same level */
+  input,
+  select,
+  textarea,
+  search {
+    --input-text-color: var(--atlas-text);
+    --input-focus-text-color: var(--atlas-text);
+    --input-placeholder-color: var(--atlas-text-dim);
+    --input-background-color: var(--atlas-input-bg);
+    --input-border-color: var(--atlas-border);
+    --input-focus-outline-color: var(--atlas-primary);
+  }
+
+  select option {
+    color: var(--atlas-text);
+    background: var(--atlas-bg);
+  }
+
+  input[type='checkbox'] {
+    --checkbox-background-color: var(--atlas-input-bg);
+    --checkbox-border-color: var(--atlas-border);
+    --checkbox-checked-color: var(--atlas-primary);
+    --checkbox-checkmark-color: var(--atlas-text-on-color);
+    --checkbox-disabled-color: var(--atlas-text-dim);
+  }
+
+  a.button,
+  button {
+    --button-text-color: var(--atlas-button-text);
+    --button-background-color: var(--atlas-button-bg);
+    --button-border-color: var(--atlas-button-border);
+    --button-hover-text-color: var(--atlas-text-heading);
+    --button-hover-background-color: var(--atlas-button-hover);
+    --button-hover-border-color: var(--atlas-primary);
+    --button-focus-outline-color: var(--atlas-primary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    border-color: var(--atlas-divider);
+    color: var(--atlas-text-heading);
+  }
+
+  a {
+    color: var(--atlas-link);
+  }
+
+  hr {
+    border-color: var(--atlas-divider);
   }
 }
 
@@ -147,6 +254,52 @@
 .atlas-troubleshooter .window-content {
   max-height: 80vh;
   overflow: hidden auto;
+}
+
+.atlas-docs-search {
+  .atlas-docs-search-body {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .atlas-docs-results {
+    max-height: 30rem;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+
+    li {
+      gap: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.25rem 0.5rem;
+      border-bottom: thin solid var(--atlas-divider);
+
+      a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .atlas-docs-module {
+    flex: 0 0 auto;
+    padding: 0.0625rem 0.5rem;
+    border: thin solid var(--atlas-border);
+    border-radius: 1rem;
+    color: var(--atlas-text-dim);
+    font-size: var(--font-size-11);
+    white-space: nowrap;
+  }
+
+  .atlas-docs-message {
+    color: var(--atlas-text-dim);
+    font-size: var(--font-size-12);
+  }
 }
 
 .atlas-troubleshooter {
@@ -161,15 +314,15 @@
     max-height: 60vh;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    border: thin solid var(--atlas-border, rgb(74 74 74));
+    border: thin solid var(--atlas-border);
     border-radius: 0.25rem;
     overflow: auto;
-    color: var(--atlas-text, rgb(224 224 224));
-    font-size: var(--font-size-13, 0.8125rem);
+    color: var(--atlas-text);
+    font-size: var(--font-size-13);
     line-height: 1.4;
     font-family: var(--font-mono, monospace);
     white-space: pre-wrap;
-    background: var(--atlas-bg, rgb(31 31 31));
+    background: var(--atlas-bg);
   }
 
   .atlas-form-footer {
@@ -177,6 +330,6 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 0.5rem;
-    border-top: thin solid var(--atlas-divider, rgb(65 65 65));
+    border-top: thin solid var(--atlas-divider);
   }
 }
