@@ -4491,6 +4491,7 @@
   "MINSTREL.Common.ConfirmDelete": "Confirm Delete",
   "MINSTREL.Common.ConfirmDeleteBody": "Delete \"{name}\"? This cannot be undone.",
   "MINSTREL.Tab.Library": "Library",
+  "MINSTREL.Tab.Board": "Board",
   "MINSTREL.Tab.Soundboard": "Soundboard",
   "MINSTREL.Tab.Moods": "Moods",
   "MINSTREL.Tab.Mixer": "Mixer",
