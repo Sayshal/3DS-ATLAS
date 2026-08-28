@@ -4517,6 +4517,8 @@
   "MINSTREL.Soundboard.Label": "Label",
   "MINSTREL.Soundboard.Src": "Sound file",
   "MINSTREL.Soundboard.Duck": "Duck music while playing",
+  "MINSTREL.Soundboard.TrimIn": "Start at (seconds)",
+  "MINSTREL.Soundboard.TrimOut": "Stop at (seconds)",
   "MINSTREL.Moods.Add": "Add mood",
   "MINSTREL.Moods.Name": "Name",
   "MINSTREL.Moods.Fade": "Transition fade (ms)",
