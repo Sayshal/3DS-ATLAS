@@ -1,0 +1,15 @@
+name: Sync i18n Hub
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger 3DS Localization Hub sync
+        run: |
+          curl -sf -X POST https://i18n.3deathsaves.com/api/sync \
+            -H "x-sync-secret: ${{ secrets.SYNC_SECRET }}"
