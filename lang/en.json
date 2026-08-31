@@ -4539,6 +4539,8 @@
   "MINSTREL.Syrinscape.Mood": "Mood",
   "MINSTREL.Syrinscape.Element": "Element",
   "MINSTREL.Syrinscape.Id": "Syrinscape ID",
+  "MINSTREL.Syrinscape.Soundset": "Soundset",
+  "MINSTREL.Syrinscape.NoSoundset": "Not set (element names unavailable)",
   "MINSTREL.Keybinds.ToggleConsole.Name": "Toggle Minstrel Console",
   "MINSTREL.Keybinds.ToggleConsole.Hint": "Open or close the Minstrel audio console.",
   "MINSTREL.Settings.OpenConsole.Name": "Minstrel Console",
