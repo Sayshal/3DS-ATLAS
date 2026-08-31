@@ -7601,7 +7601,7 @@
   "PEDDLER.Sheet.VignetteStrength": "Vignette Strength",
   "PEDDLER.Sheet.VignetteStrengthHint": "Overrides how strong the backdrop vignette is while this node is showing, from 0 (none) to 1 (full). Leave blank to use the theme default.",
   "PEDDLER.Vignette.Browse.Filter": "Filter",
-  "PEDDLER.Vignette.A11y.Quantity": "Quantity of {item}"
+  "PEDDLER.Vignette.A11y.Quantity": "Quantity of {item}",
   "MINSTREL.Soundboard.ImportPad": "Import this pad",
   "MINSTREL.Tab.Music": "Music",
   "MINSTREL.Tab.Ambience": "Ambience",
