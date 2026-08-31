@@ -310,6 +310,37 @@ export const MINIMALIST_COLORS = {
   weekdayHeader: '#1a1a1a'
 };
 
+/** @type {Object<string, string>} Minstrel - stage-lit indigo dark with a brass primary and rose secondary. */
+export const MINSTREL_COLORS = {
+  bg: '#15131b',
+  bgLighter: '#1c1a24',
+  bgHover: '#26222f',
+  border: '#332f3e',
+  borderLight: '#3f3a4c',
+  divider: '#2c2836',
+  inputBg: '#201d29',
+  text: '#ece9f2',
+  textDim: '#9993a6',
+  textHeading: '#f3e7cf',
+  textSecondary: '#b8b2c4',
+  titleText: '#f3e7cf',
+  buttonBg: '#26222f',
+  buttonText: '#ece9f2',
+  buttonBorder: '#332f3e',
+  primary: '#e6a94d',
+  today: '#f2b95c',
+  accent: '#d5738a',
+  error: '#e2645f',
+  warning: '#e6b84d',
+  success: '#63c47a',
+  shadow: '#000000',
+  overlay: '#000000',
+  calloutBorder: '#e6a94d',
+  calloutText: '#f0c070',
+  restDay: '#b8b2c4',
+  weekdayHeader: '#ece9f2'
+};
+
 /** @type {Object<string, string>} Neon - black backgrounds with electric cyan, magenta, and green. */
 export const NEON_COLORS = {
   bg: '#050505',
@@ -600,6 +631,7 @@ export const THEME_PRESETS = {
   infernal: { name: 'ATLAS.Theme.Presets.Infernal', colors: INFERNAL_COLORS },
   light: { name: 'ATLAS.Theme.Presets.Light', colors: LIGHT_COLORS },
   minimalist: { name: 'ATLAS.Theme.Presets.Newsprint', colors: MINIMALIST_COLORS },
+  minstrel: { name: 'ATLAS.Theme.Presets.Minstrel', colors: MINSTREL_COLORS },
   neon: { name: 'ATLAS.Theme.Presets.Neon', colors: NEON_COLORS },
   parchment: { name: 'ATLAS.Theme.Presets.Parchment', colors: PARCHMENT_COLORS },
   sakura: { name: 'ATLAS.Theme.Presets.Sakura', colors: SAKURA_COLORS },
