@@ -1,51 +1,9 @@
-## Breaking Changes
-
-- The Royal theme preset was removed. A module still set to Royal now falls back to the Dark palette.
-
 ## New Features
 
-- ATLAS registers itself as a themeable module, so its own applications (theme config, troubleshooter, documentation search, update notices) follow the selected theme.
-- Added a 3DS Documentation search application, opened from its own button in the 3DS: ATLAS settings menu and available to all users.
-- Added a Primary GM world setting that names which GM client runs 3DS suite automation. The chosen GM is used while online and still a GM, otherwise Foundry's active GM takes over.
-- Added a Send to Support button to the troubleshooter footer that posts the current report to the 3 Death Saves Discord support forum.
-- After posting, a dialog links the created forum thread, plus the Discord invite when the supplied username is not found on the server.
-- Declared detachable labels are localized at registration, falling back to the verbatim string when no translation key matches.
-- GM-authoritative events execute on the primary GM first, then rebroadcast to the remaining clients. Relays outside a module's allowlist are rejected and logged.
-- Module registration accepts a `detachable` array of `{id, label}` app declarations, stored on the registry entry.
-- Module registration accepts an `events` allowlist of hook names, each optionally flagged `gmAuthoritative`.
-- Relayed hooks fire with a trailing `{remote: true, userId}` marker.
-- Results can be scoped to a single registered module or the whole wiki, and each row shows a module pill.
-- Submissions attach the Foundry version and build, system id and version, module version, and client automatically.
-- The application fetches the 3 Death Saves wiki index once per open and filters it in memory as you type, opening results in a browser tab.
-- The application shows an unavailable message when the wiki index cannot be reached.
-- The registration handle gains `broadcast(event, ...args)`, which re-fires an allowlisted hook on every other connected client.
-- The submission dialog collects a quick description, a Discord username, and whether the issue reproduced with only the module enabled.
-- Themed applications now style their window frame: header background and border, window title, the window icon in the theme accent, and header control buttons.
-- `ATLAS.primaryGM` and `ATLAS.isPrimaryGM` expose the resolved GM to registered modules.
+- Added a new "Minstrel" theme preset (indigo surfaces, mint and orchid accents) to the shared theme picker.
+- Expanded German translation coverage for 3DS:ATLAS and Bondsmith, and Portuguese (Brazil) coverage for Calendaria, via community contributions.
+- Updated localization keys for Minstrel, glyph, FXMaster, and Peddler.
 
 ## Bug Fixes
 
-- Buttons inside themed applications now follow the picked theme in dark mode, hover, focus and active states included, since the button color tokens are emitted on the button elements instead of the application container where core's dark-theme rule outranked them.
-- Changing a module's theme selection while Force for All Players is on now updates the forced theme too, instead of leaving players on the previously forced one.
-- Checkbox and radio glyphs inside themed applications now follow the picked theme, with background, border, checked, checkmark and disabled colors bridged to the theme tokens.
-- Detaching and reattaching an app repeatedly no longer duplicates theme style elements, since blocks are upserted by id.
-- Link and hover colors derive away from the background rather than always lightening, keeping light presets readable.
-- Picking the Default theme option no longer strips a module's styling, since a stored `none` selection now falls through to the module's registered default theme instead of emitting no theme block and leaving every `--atlas` variable undefined. `none` is normalized the same way for forced themes and per-application overrides.
-- Range slider thumbs inside themed applications now use the theme background and primary color instead of core's hardcoded colors.
-- Text drawn on colored surfaces now picks black or white by the primary color luminance, fixing white checkmarks and selection text on light-primary presets.
-- The theme bridges core's background, text, form, level, button, input, select option and scrollbar variables and sets `color-scheme` per scope, so core-styled widgets and native controls inside a themed application follow the picked theme rather than Foundry's.
-- Theme style blocks are written into every open detached window as well as the main window, and opening a detached window syncs every registered module's blocks into it immediately.
-- Window header control buttons no longer get painted with the theme's button fill, since their background and border variables are reset on the header controls.
-
-## Changes
-
-- Core font size tokens are consumed directly without duplicated rem fallbacks, keeping themed text sized by the running Foundry version.
-- Frost, Slate and Verdant received a primary color drawn from their own palette.
-- Hardcoded fallback values were dropped from every `--atlas-*` reference in the theme stylesheet, so an element outside a themed scope now inherits Foundry's own styling instead of a baked-in dark palette.
-- Presets renamed: Amberwood, Beeswax, Lodestar, Newsprint and Pewter replace Dark Parchment, Gold Parchment, Hero Mancer, Minimalist and Spellbook. Stored theme selections keep working, since only the display names changed.
-- Updated English localization strings across Bondsmith, Calendaria, Don't Forget, Hero Mancer, Macro Keybinds, Mindful Encounters, Peddler, Rollies, SNOOT, Spell Book, Tenacity, Token Light Condition, TravelPace and VGMusic.
-- Verified compatibility raised to Foundry VTT 14.366.
-
-## Documentation
-
-- README documents the event relay in the What It Does list.
+- Fixed the German localization file to stay flat dot-key shaped instead of nesting.
