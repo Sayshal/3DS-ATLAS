@@ -310,35 +310,35 @@ export const MINIMALIST_COLORS = {
   weekdayHeader: '#1a1a1a'
 };
 
-/** @type {Object<string, string>} Minstrel - stage-lit indigo dark with a brass primary and rose secondary. */
+/** @type {Object<string, string>} Minstrel - indigo surfaces with a mint primary and orchid accent. */
 export const MINSTREL_COLORS = {
-  bg: '#15131b',
-  bgLighter: '#1c1a24',
-  bgHover: '#26222f',
-  border: '#332f3e',
-  borderLight: '#3f3a4c',
-  divider: '#2c2836',
-  inputBg: '#201d29',
-  text: '#ece9f2',
-  textDim: '#9993a6',
-  textHeading: '#f3e7cf',
-  textSecondary: '#b8b2c4',
-  titleText: '#f3e7cf',
-  buttonBg: '#26222f',
-  buttonText: '#ece9f2',
-  buttonBorder: '#332f3e',
-  primary: '#e6a94d',
-  today: '#f2b95c',
-  accent: '#d5738a',
-  error: '#e2645f',
-  warning: '#e6b84d',
-  success: '#63c47a',
+  bg: '#171323',
+  bgLighter: '#231e32',
+  bgHover: '#2f2942',
+  border: '#47405d',
+  borderLight: '#5a5274',
+  divider: '#37314a',
+  inputBg: '#1e192c',
+  text: '#e8e6f2',
+  textDim: '#9c99a9',
+  textHeading: '#f6f3ff',
+  textSecondary: '#c1bfcd',
+  titleText: '#66bea4',
+  buttonBg: '#282238',
+  buttonText: '#e8e6f2',
+  buttonBorder: '#47405d',
+  primary: '#66bea4',
+  today: '#d87fd1',
+  accent: '#d87fd1',
+  error: '#f34e6a',
+  warning: '#e6c45a',
+  success: '#5bcc80',
   shadow: '#000000',
   overlay: '#000000',
-  calloutBorder: '#e6a94d',
-  calloutText: '#f0c070',
-  restDay: '#b8b2c4',
-  weekdayHeader: '#ece9f2'
+  calloutBorder: '#66bea4',
+  calloutText: '#87cfb8',
+  restDay: '#9c99a9',
+  weekdayHeader: '#e8e6f2'
 };
 
 /** @type {Object<string, string>} Neon - black backgrounds with electric cyan, magenta, and green. */
