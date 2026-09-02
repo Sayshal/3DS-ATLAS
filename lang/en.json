@@ -7535,6 +7535,8 @@
   "GLYPH.ACTIONS.teleportToken.FIELDS.snap.label": "Snap to Grid",
   "GLYPH.ACTIONS.teleportToken.FIELDS.avoidOccupied.label": "Avoid Occupied Spaces",
   "GLYPH.ACTIONS.teleportToken.FIELDS.pan.label": "Pan Camera",
+  "GLYPH.ACTIONS.teleportToken.FIELDS.keepOrigin.label": "Keep Origin Token",
+  "GLYPH.ACTIONS.teleportToken.FIELDS.keepOrigin.hint": "On a cross-scene teleport, leave a hidden copy of the token behind on the origin scene instead of deleting it.",
   "GLYPH.TELEPORT_PLACEMENT.random": "Random",
   "GLYPH.TELEPORT_PLACEMENT.center": "Center",
   "GLYPH.TELEPORT_PLACEMENT.relative": "Relative",
