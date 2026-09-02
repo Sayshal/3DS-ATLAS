@@ -403,6 +403,37 @@ export const PARCHMENT_COLORS = {
   weekdayHeader: '#3c2415'
 };
 
+/** @type {Object<string, string>} Ledger - warm brass-and-parchment surfaces, deep ink-brown text, and a single burnished-gold accent. */
+export const PEDDLER_COLORS = {
+  bg: '#1e1811',
+  bgLighter: '#211910',
+  bgHover: '#3a2c1c',
+  border: '#7c6742',
+  borderLight: '#7c6742',
+  divider: '#7c6742',
+  inputBg: '#15110d',
+  text: '#ede3cf',
+  textDim: '#b3a894',
+  textHeading: '#ede3cf',
+  textSecondary: '#b3a894',
+  titleText: '#c9a86a',
+  buttonBg: '#211910',
+  buttonText: '#ede3cf',
+  buttonBorder: '#7c6742',
+  primary: '#c9a86a',
+  today: '#c9a86a',
+  accent: '#c9a86a',
+  error: '#a83a2e',
+  warning: '#dfae4e',
+  success: '#79ad5e',
+  shadow: '#000000',
+  overlay: '#000000',
+  calloutBorder: '#c9a86a',
+  calloutText: '#c9a86a',
+  restDay: '#b3a894',
+  weekdayHeader: '#ede3cf'
+};
+
 /** @type {Object<string, string>} Sakura - soft blush-pink surfaces with rose and plum accents. */
 export const SAKURA_COLORS = {
   bg: '#4a2838',
@@ -634,6 +665,7 @@ export const THEME_PRESETS = {
   minstrel: { name: 'ATLAS.Theme.Presets.Minstrel', colors: MINSTREL_COLORS },
   neon: { name: 'ATLAS.Theme.Presets.Neon', colors: NEON_COLORS },
   parchment: { name: 'ATLAS.Theme.Presets.Parchment', colors: PARCHMENT_COLORS },
+  peddler: { name: 'ATLAS.Theme.Presets.Ledger', colors: PEDDLER_COLORS },
   sakura: { name: 'ATLAS.Theme.Presets.Sakura', colors: SAKURA_COLORS },
   slate: { name: 'ATLAS.Theme.Presets.Slate', colors: SLATE_COLORS },
   solarized: { name: 'ATLAS.Theme.Presets.Solarized', colors: SOLARIZED_COLORS },
