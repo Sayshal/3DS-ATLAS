@@ -7554,6 +7554,8 @@
   "GLYPH.ACTIONS.showDialog.FIELDS.content.label": "Content",
   "GLYPH.ACTIONS.showDialog.FIELDS.buttons.label": "Buttons",
   "GLYPH.ACTIONS.showDialog.FIELDS.buttons.hint": "A JSON array, e.g. [{\"label\":\"Yes\",\"handler\":\"onYes\"}]. \"handler\" names a Program-tab handler to run on click; omit it to just close the dialog.",
+  "GLYPH.ACTIONS.showDialog.FIELDS.closeHandler.label": "On Close",
+  "GLYPH.ACTIONS.showDialog.FIELDS.closeHandler.hint": "A handler to run if the dialog is dismissed without clicking a button (the window's own close button, or Escape).",
   "GLYPH.ACTIONS.closeDialog.label": "Close Dialog",
   "GLYPH.ACTIONS.closeDialog.hint": "Close a dialog previously opened by Show Dialog on this trigger, for the given audience.",
   "GLYPH.ACTIONS.writeToJournal.label": "Write to Journal",
