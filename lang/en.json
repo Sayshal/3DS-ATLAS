@@ -7172,6 +7172,8 @@
   "GLYPH.NODES.forEach.label": "For Each",
   "GLYPH.NODES.forEach.hint": "Repeat its actions once per item in a collection.",
   "GLYPH.NODES.forEach.FIELDS.collection.label": "Collection",
+  "GLYPH.NODES.forEach.FIELDS.randomize.label": "Randomize Order",
+  "GLYPH.NODES.forEach.FIELDS.randomize.hint": "Shuffle the collection before filtering, picking, or limiting it.",
   "GLYPH.NODES.forEach.FIELDS.filter.label": "Filter",
   "GLYPH.NODES.forEach.FIELDS.filter.hint": "Optional condition, e.g. visible({{item}}), hasCondition({{item}}, \"prone\"), attribute({{item}}, \"system.attributes.hp.value\") > 0, distance({{item}}, {{region}}) <= 30, hasItem({{item}}, \"Torch\"), or chance(50). Only items where this is true continue.",
   "GLYPH.NODES.forEach.FIELDS.limit.label": "Limit",
