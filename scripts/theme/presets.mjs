@@ -93,6 +93,37 @@ export const DARK_PARCHMENT_COLORS = {
   weekdayHeader: '#ede0c5'
 };
 
+/** @type {Object<string, string>} Ember - near-black slate surfaces with a single ember-orange accent. */
+export const EMBER_COLORS = {
+  bg: '#111218',
+  bgLighter: '#1b1d24',
+  bgHover: '#242730',
+  border: '#2b2c33',
+  borderLight: '#414248',
+  divider: '#2b2c33',
+  inputBg: '#0a0b0e',
+  text: '#dedfe4',
+  textDim: '#6f727b',
+  textHeading: '#f0f1f4',
+  textSecondary: '#9b9ea8',
+  titleText: '#f0f1f4',
+  buttonBg: '#242730',
+  buttonText: '#dedfe4',
+  buttonBorder: '#414248',
+  primary: '#f2523a',
+  today: '#ff6b55',
+  accent: '#f2523a',
+  error: '#cf3560',
+  warning: '#e9c15a',
+  success: '#5fbd7b',
+  shadow: '#000000',
+  overlay: '#000000',
+  calloutBorder: '#f2523a',
+  calloutText: '#ff6b55',
+  restDay: '#9b9ea8',
+  weekdayHeader: '#dedfe4'
+};
+
 /** @type {Object<string, string>} Frost - cold slate-blue backgrounds with icy accents. */
 export const FROST_COLORS = {
   bg: '#a8c4d8',
@@ -403,37 +434,6 @@ export const PARCHMENT_COLORS = {
   weekdayHeader: '#3c2415'
 };
 
-/** @type {Object<string, string>} Ledger - warm brass-and-parchment surfaces, deep ink-brown text, and a single burnished-gold accent. */
-export const PEDDLER_COLORS = {
-  bg: '#1e1811',
-  bgLighter: '#211910',
-  bgHover: '#3a2c1c',
-  border: '#7c6742',
-  borderLight: '#7c6742',
-  divider: '#7c6742',
-  inputBg: '#15110d',
-  text: '#ede3cf',
-  textDim: '#b3a894',
-  textHeading: '#ede3cf',
-  textSecondary: '#b3a894',
-  titleText: '#c9a86a',
-  buttonBg: '#211910',
-  buttonText: '#ede3cf',
-  buttonBorder: '#7c6742',
-  primary: '#c9a86a',
-  today: '#c9a86a',
-  accent: '#c9a86a',
-  error: '#a83a2e',
-  warning: '#dfae4e',
-  success: '#79ad5e',
-  shadow: '#000000',
-  overlay: '#000000',
-  calloutBorder: '#c9a86a',
-  calloutText: '#c9a86a',
-  restDay: '#b3a894',
-  weekdayHeader: '#ede3cf'
-};
-
 /** @type {Object<string, string>} Sakura - soft blush-pink surfaces with rose and plum accents. */
 export const SAKURA_COLORS = {
   bg: '#4a2838',
@@ -655,6 +655,7 @@ export const THEME_PRESETS = {
   arcane: { name: 'ATLAS.Theme.Presets.Arcane', colors: ARCANE_COLORS },
   dark: { name: 'ATLAS.Common.Dark', colors: DARK_COLORS },
   darkParchment: { name: 'ATLAS.Theme.Presets.Amberwood', colors: DARK_PARCHMENT_COLORS },
+  ember: { name: 'ATLAS.Theme.Presets.Ember', colors: EMBER_COLORS },
   frost: { name: 'ATLAS.Theme.Presets.Frost', colors: FROST_COLORS },
   goldParchment: { name: 'ATLAS.Theme.Presets.Beeswax', colors: GOLD_PARCHMENT_COLORS },
   heromancer: { name: 'ATLAS.Theme.Presets.Lodestar', colors: HEROMANCER_COLORS },
@@ -665,7 +666,6 @@ export const THEME_PRESETS = {
   minstrel: { name: 'ATLAS.Theme.Presets.Minstrel', colors: MINSTREL_COLORS },
   neon: { name: 'ATLAS.Theme.Presets.Neon', colors: NEON_COLORS },
   parchment: { name: 'ATLAS.Theme.Presets.Parchment', colors: PARCHMENT_COLORS },
-  peddler: { name: 'ATLAS.Theme.Presets.Ledger', colors: PEDDLER_COLORS },
   sakura: { name: 'ATLAS.Theme.Presets.Sakura', colors: SAKURA_COLORS },
   slate: { name: 'ATLAS.Theme.Presets.Slate', colors: SLATE_COLORS },
   solarized: { name: 'ATLAS.Theme.Presets.Solarized', colors: SOLARIZED_COLORS },
