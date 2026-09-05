@@ -7681,6 +7681,8 @@
   "GLYPH.ACTIONS.teleportToken.FIELDS.pan.label": "Pan Camera",
   "GLYPH.ACTIONS.teleportToken.FIELDS.keepOrigin.label": "Keep Origin Token",
   "GLYPH.ACTIONS.teleportToken.FIELDS.keepOrigin.hint": "On a cross-scene teleport, leave a hidden copy of the token behind on the origin scene instead of deleting it.",
+  "GLYPH.ACTIONS.teleportToken.FIELDS.suppressTriggers.label": "Suppress Triggers",
+  "GLYPH.ACTIONS.teleportToken.FIELDS.suppressTriggers.hint": "Stop the teleport itself from firing any trigger on the token - the destination Region's own enter triggers, and the origin Region's exit triggers.",
   "GLYPH.TELEPORT_PLACEMENT.random": "Random",
   "GLYPH.TELEPORT_PLACEMENT.center": "Center",
   "GLYPH.TELEPORT_PLACEMENT.relative": "Relative",
