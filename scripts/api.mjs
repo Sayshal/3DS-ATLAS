@@ -2,6 +2,7 @@ import { MODULE } from './constants.mjs';
 import { buildReport, dnd5eSourceLines, reportToMarkdown } from './diagnostics.mjs';
 import { getPrimaryGM, isPrimaryGM } from './primary-gm.mjs';
 import { getModule, getRegisteredModules, register } from './registry.mjs';
+import { buildPayload, exportSuite, importSuite } from './settings-io.mjs';
 import { THEME_PRESETS } from './theme/presets.mjs';
 import {
   applyModuleTheme,
@@ -65,6 +66,7 @@ export const ATLASAPI = {
     exportCustomTheme,
     importCustomTheme
   },
+  settings: { buildPayload, exportSuite, importSuite },
   updates: { checkForUpdates },
   diagnostics: { buildReport, reportToMarkdown, dnd5eSourceLines, open: () => new Troubleshooter().render(true) }
 };
