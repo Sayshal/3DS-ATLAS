@@ -93,6 +93,37 @@ export const DARK_PARCHMENT_COLORS = {
   weekdayHeader: '#ede0c5'
 };
 
+/** @type {Object<string, string>} Ember - near-black slate surfaces with a single ember-orange accent. */
+export const EMBER_COLORS = {
+  bg: '#111218',
+  bgLighter: '#1b1d24',
+  bgHover: '#242730',
+  border: '#2b2c33',
+  borderLight: '#414248',
+  divider: '#2b2c33',
+  inputBg: '#0a0b0e',
+  text: '#dedfe4',
+  textDim: '#6f727b',
+  textHeading: '#f0f1f4',
+  textSecondary: '#9b9ea8',
+  titleText: '#f0f1f4',
+  buttonBg: '#242730',
+  buttonText: '#dedfe4',
+  buttonBorder: '#414248',
+  primary: '#f2523a',
+  today: '#ff6b55',
+  accent: '#f2523a',
+  error: '#cf3560',
+  warning: '#e9c15a',
+  success: '#5fbd7b',
+  shadow: '#000000',
+  overlay: '#000000',
+  calloutBorder: '#f2523a',
+  calloutText: '#ff6b55',
+  restDay: '#9b9ea8',
+  weekdayHeader: '#dedfe4'
+};
+
 /** @type {Object<string, string>} Frost - cold slate-blue backgrounds with icy accents. */
 export const FROST_COLORS = {
   bg: '#a8c4d8',
@@ -624,6 +655,7 @@ export const THEME_PRESETS = {
   arcane: { name: 'ATLAS.Theme.Presets.Arcane', colors: ARCANE_COLORS },
   dark: { name: 'ATLAS.Common.Dark', colors: DARK_COLORS },
   darkParchment: { name: 'ATLAS.Theme.Presets.Amberwood', colors: DARK_PARCHMENT_COLORS },
+  ember: { name: 'ATLAS.Theme.Presets.Ember', colors: EMBER_COLORS },
   frost: { name: 'ATLAS.Theme.Presets.Frost', colors: FROST_COLORS },
   goldParchment: { name: 'ATLAS.Theme.Presets.Beeswax', colors: GOLD_PARCHMENT_COLORS },
   heromancer: { name: 'ATLAS.Theme.Presets.Lodestar', colors: HEROMANCER_COLORS },

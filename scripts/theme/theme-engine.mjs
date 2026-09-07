@@ -112,7 +112,9 @@ function buildAppCss(scope) {
   const fields = ['input', 'select', 'textarea', 'code-mirror', 'formula-input', 'color-picker', 'file-picker', 'document-tags', 'string-tags'];
   const fieldSel = roots.flatMap((r) => fields.map((f) => `${r} ${f}`)).join(',');
   const optSel = roots.flatMap((r) => [`${r} select option`, `${r} select optgroup`]).join(',');
-  const checkSel = roots.flatMap((r) => [`${r} input[type='checkbox']`, `${r} input[type='radio']`]).join(',');
+  const checkParts = roots.flatMap((r) => [`${r} input[type='checkbox']`, `${r} input[type='radio']`]);
+  const checkSel = checkParts.join(',');
+  const checkBeforeSel = checkParts.map((c) => `${c}:not(:checked):not(:indeterminate)::before`).join(',');
   const rangeSel = roots.map((r) => `${r} input[type='range']`).join(',');
   const btnSel = roots.map((r) => `${r} :is(a.button, button, kbd)`).join(',');
   return `
@@ -163,11 +165,14 @@ ${btnSel} {
   --button-text-color: var(--${ns}-button-text);
 }
 ${checkSel} {
-  --checkbox-background-color: var(--${ns}-input-bg);
+  --checkbox-background-color: var(--${ns}-border-light);
   --checkbox-border-color: var(--${ns}-border);
   --checkbox-checked-color: var(--${ns}-primary);
   --checkbox-checkmark-color: var(--${ns}-text-on-color);
   --checkbox-disabled-color: var(--${ns}-text-dim);
+}
+${checkBeforeSel} {
+  font-weight: 400;
 }
 ${rangeSel} {
   --range-thumb-background-color: var(--${ns}-bg);

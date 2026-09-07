@@ -76,7 +76,7 @@ export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV
       if (!entry.theme?.scope) continue;
       const sel = selections[entry.id] || {};
       const moduleWide = sel.theme || 'none';
-      const apps = getAppScopes(entry.theme).map((app) => ({ key: app.key, label: app.label, select: buildSelect(sel.apps?.[app.key] || 'none', 'ATLAS.Common.Inherit') }));
+      const apps = getAppScopes(entry.theme).map((app) => ({ key: app.key, label: _loc(app.label), select: buildSelect(sel.apps?.[app.key] || 'none', 'ATLAS.Common.Inherit') }));
       modules.push({
         id: entry.id,
         title: entry.title,
