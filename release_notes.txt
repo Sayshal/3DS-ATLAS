@@ -1,9 +1,16 @@
 ## New Features
 
-- Added a new "Minstrel" theme preset (indigo surfaces, mint and orchid accents) to the shared theme picker.
-- Expanded German translation coverage for 3DS:ATLAS and Bondsmith, and Portuguese (Brazil) coverage for Calendaria, via community contributions.
-- Updated localization keys for Minstrel, glyph, FXMaster, and Peddler.
+- Added a Settings Transfer application to the 3DS: ATLAS settings menu that exports and imports settings for the registered 3DS modules you tick.
+- Added an "Ember" theme preset (near-black slate surfaces, ember-orange accent) to the shared theme picker.
+- Exports write a dated JSON file. Imports skip settings the current user may not change, and prompt for a reload when one requires it.
 
 ## Bug Fixes
 
-- Fixed the German localization file to stay flat dot-key shaped instead of nesting.
+- Sub-application scope labels in the theme configuration are now localized instead of rendering as raw keys.
+- Unchecked checkboxes and radios inside themed applications now draw in Font Awesome regular and fill from the border-light token, so they read against dark backgrounds.
+
+## Changes
+
+- Localization updates across ATLAS, Bondsmith, Calendaria, glyph, Hero Mancer, Mindful Encounters, Minstrel, Peddler, Rollies, Snoot, Spellbook, and Tenacity.
+- Portuguese (Brazil) coverage for Hero Mancer was expanded via a community contribution.
+- Symbol characters were stripped from the language files.
