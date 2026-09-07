@@ -1,0 +1,19 @@
+<div class='atlas-module-list'>
+  <p class='notes'>
+    {{localize 'ATLAS.SettingsIO.SelectModules'}}
+  </p>
+  {{#if modules.length}}
+    {{#each modules as |mod|}}
+      <div class='form-group'>
+        <label for='atlas-io-{{mod.id}}'>
+          {{mod.title}}
+        </label>
+        <div class='form-fields'>
+          <input type='checkbox' id='atlas-io-{{mod.id}}' data-module-id='{{mod.id}}' checked />
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <p class='notes'>{{localize 'ATLAS.Common.None'}}</p>
+  {{/if}}
+</div>
