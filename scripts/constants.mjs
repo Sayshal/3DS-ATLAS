@@ -1,9 +1,5 @@
 /** @type {object} Module identification */
-export const MODULE = {
-  ID: '3ds-atlas',
-  LOG_LEVEL: 0,
-  TITLE: '3DS:ATLAS'
-};
+export const MODULE = { ID: '3ds-atlas', LOG_LEVEL: 0, TITLE: '3DS:ATLAS' };
 
 /** @enum {string} Settings keys for Foundry VTT game settings */
 export const SETTINGS = {
@@ -19,11 +15,7 @@ export const SETTINGS = {
 };
 
 /** @enum {string} Custom hook event names dispatched by ATLAS */
-export const HOOKS = {
-  READY: `${MODULE.ID}.ready`,
-  REGISTERED: `${MODULE.ID}.moduleRegistered`,
-  THEME_CHANGED: `${MODULE.ID}.themeChanged`
-};
+export const HOOKS = { READY: `${MODULE.ID}.ready`, REGISTERED: `${MODULE.ID}.moduleRegistered`, THEME_CHANGED: `${MODULE.ID}.themeChanged` };
 
 /** @type {string} Socket channel used by the cross-client event relay. */
 export const RELAY_CHANNEL = `module.${MODULE.ID}`;

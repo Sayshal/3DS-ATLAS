@@ -18,6 +18,7 @@ export default class ThemeEditor extends HandlebarsApplicationMixin(ApplicationV
     this.#key = options.themeKey;
   }
 
+  /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     id: 'atlas-theme-editor',
     tag: 'form',
@@ -27,6 +28,7 @@ export default class ThemeEditor extends HandlebarsApplicationMixin(ApplicationV
     actions: { save: ThemeEditor.#onSave }
   };
 
+  /** @inheritdoc */
   static PARTS = {
     main: { template: `modules/${MODULE.ID}/templates/theme-editor/main.hbs` },
     footer: { template: `modules/${MODULE.ID}/templates/theme-editor/footer.hbs` }

@@ -29,8 +29,7 @@ function collectTheme(moduleId) {
 }
 
 /**
- * Troubleshooter lines for the dnd5e CompendiumBrowser's enabled sources. Shared by modules whose debug hook
- * reports which packs are in scope; returns nothing off dnd5e.
+ * Troubleshooter lines for the dnd5e CompendiumBrowser's enabled sources.
  * @returns {string[]}
  */
 export function dnd5eSourceLines() {
@@ -45,7 +44,7 @@ export function dnd5eSourceLines() {
 }
 
 /**
- * Invoke a module's optional debug callback (may be async), guarding against throws.
+ * Invoke a module's optional debug callback.
  * @param {?Function} fn                 The module's debug callback.
  * @param {{mode: string}} ctx           Report context passed to the hook.
  * @returns {Promise<string[]>}
@@ -61,7 +60,7 @@ async function collectDebug(fn, ctx) {
 }
 
 /**
- * Resolve each module's debug lines in place (mutates `modules`). Full report only.
+ * Resolve each module's debug lines in place.
  * @param {object[]} modules      buildReport().modules
  * @param {{mode: string}} ctx    Report context; `mode` is `'display'`, `'copy'`, or `'export'`.
  * @returns {Promise<void>}
@@ -75,7 +74,7 @@ export async function resolveDebug(modules, ctx) {
 }
 
 /**
- * Build the ATLAS diagnostics snapshot: the registered 3DS modules (scoped) and a full module list.
+ * Build the ATLAS diagnostics snapshot.
  * @param {string} [scope]  `'all'` (default) for every registered 3DS module, or a single module id.
  * @returns {object}
  */
@@ -87,7 +86,7 @@ export function buildReport(scope = 'all') {
     return {
       id,
       title: entry.title,
-      version: game.modules.get(id)?.version ?? 'unknown',
+      version: game.modules.get(id).version,
       github: entry.github,
       themeScope: entry.theme?.scope ?? null,
       theme: collectTheme(id),
@@ -191,9 +190,9 @@ export async function collectSystemData() {
 
 /**
  * Full troubleshooter report.
- * @param {string} scope                        `'all'` or a single module id.
- * @param {{core: ?object, sizes: ?Object<string, number>}} system  Result of collectSystemData().
- * @param {string} [mode]  Report context for debug hooks: `'display'` (default), `'copy'`, or `'export'`.
+ * @param {string} scope                                            `'all'` or a single module id.
+ * @param {{core: ?object, sizes: ?Object<string, number>}} system    Result of collectSystemData().
+ * @param {string} [mode]                                             Report context for debug hooks: `'display'` (default), `'copy'`, or `'export'`.
  * @returns {Promise<string>}
  */
 export async function renderFullReport(scope, system, mode = 'display') {
