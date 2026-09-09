@@ -18,7 +18,7 @@ const registered = new Map();
  * @param {Function} [config.debug]           Callback returning extra troubleshooter lines
  * @param {object[]} [config.detachable]      Detachable `{id, label}` apps; labels are loc keys
  * @param {(string|object)[]} [config.events] Hook events this module may relay
- * @param {object} [config.settingsIO]  Custom settings transfer with `export` and `import` functions
+ * @param {object} [config.settingsIO]        Custom settings transfer with `export` and `import` functions
  * @returns {object}
  */
 export function register(moduleId, config = {}) {

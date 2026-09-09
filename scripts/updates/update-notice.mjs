@@ -13,9 +13,7 @@ function renderMarkdown(text) {
   return `<pre>${foundry.utils.escapeHTML(text)}</pre>`;
 }
 
-/**
- * Tabbed digest of newly-installed 3DS modules (release notes) and available updates.
- */
+/** Tabbed digest of newly-installed 3DS modules (release notes) and available updates. */
 export default class UpdateNotice extends HandlebarsApplicationMixin(ApplicationV2) {
   /** @type {{id: string, title: string, version: string, notes: string}[]} */
   #changed;
@@ -38,6 +36,7 @@ export default class UpdateNotice extends HandlebarsApplicationMixin(Application
     this.#active = this.#changed[0]?.id ?? '__pending';
   }
 
+  /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     id: 'atlas-update-notice',
     classes: ['atlas', 'atlas-update-notice'],
@@ -45,6 +44,7 @@ export default class UpdateNotice extends HandlebarsApplicationMixin(Application
     position: { width: 680, height: 'auto' }
   };
 
+  /** @inheritdoc */
   static PARTS = {
     tabs: { template: `modules/${MODULE.ID}/templates/update-notice/tabs.hbs` },
     content: { template: `modules/${MODULE.ID}/templates/update-notice/content.hbs` }

@@ -18,12 +18,9 @@ import {
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-/**
- * Per-module (and per-application) theme picker plus a custom-theme editor with
- * import/export. Assigns a preset or custom theme to each registered module and, where a
- * module registers sub-applications, to each of those individually.
- */
+/** Per-module (and per-application) theme picker and editor. */
 export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV2) {
+  /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     id: 'atlas-theme-config',
     tag: 'form',
@@ -39,6 +36,7 @@ export default class ThemeConfig extends HandlebarsApplicationMixin(ApplicationV
     }
   };
 
+  /** @inheritdoc */
   static PARTS = {
     modules: { template: `modules/${MODULE.ID}/templates/theme-config/modules.hbs` },
     custom: { template: `modules/${MODULE.ID}/templates/theme-config/custom.hbs` }

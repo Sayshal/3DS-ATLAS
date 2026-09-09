@@ -7,6 +7,7 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /** Export and import settings across every registered 3DS module in one pass. */
 export default class SettingsTransfer extends HandlebarsApplicationMixin(ApplicationV2) {
+  /** @inheritdoc */
   static DEFAULT_OPTIONS = {
     id: 'atlas-settings-io',
     tag: 'form',
@@ -19,6 +20,7 @@ export default class SettingsTransfer extends HandlebarsApplicationMixin(Applica
     }
   };
 
+  /** @inheritdoc */
   static PARTS = {
     body: { template: `modules/${MODULE.ID}/templates/settings-io/body.hbs` },
     footer: { template: `modules/${MODULE.ID}/templates/settings-io/footer.hbs` }

@@ -1,4 +1,5 @@
-<select {{#if isAll}}data-all="true"{{else}}data-module="{{moduleId}}" {{#if appKey}}data-app="{{appKey}}" {{/if}}{{/if}}>
+<select {{#if isAll}}data-all="true" {{else}}data-module="{{moduleId}}" {{#if appKey}}data-app="{{appKey}}"
+  {{/if}}{{/if}}>
   <option value="none" {{#if sel.isDefault}}selected{{/if}}>{{localize sel.defaultLabel}}</option>
   {{#each sel.groups as |grp|}}
     {{#if grp.choices.length}}

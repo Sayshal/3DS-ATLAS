@@ -66,7 +66,7 @@ export function exportSuite(moduleIds) {
  * Apply a transfer payload, skipping modules that are not registered and settings the user may not write.
  * @param {object} payload      A payload produced by `exportSuite`.
  * @param {string[]} moduleIds  Registered module ids to apply; others in the payload are ignored.
- * @returns {Promise<{applied: number, skipped: string[], failed: string[]}>} What landed.
+ * @returns {Promise<{applied: number, skipped: string[], failed: string[]}>}
  */
 export async function importSuite(payload, moduleIds) {
   if (payload?.formatVersion !== FORMAT_VERSION) throw new Error(`Unsupported settings payload version: ${payload?.formatVersion}`);

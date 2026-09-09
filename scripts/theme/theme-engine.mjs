@@ -29,7 +29,7 @@ export function getForcedTheme(moduleId) {
 
 /**
  * Set or clear the GM-forced theme for a module.
- * @param {string} moduleId       Registered module id
+ * @param {string} moduleId        Registered module id
  * @param {string|null} keyOrNull  Theme key to force; null/'none' clears the override
  * @returns {Promise<void>}
  */
@@ -98,10 +98,7 @@ function buildScopedCss(scope, colors) {
 }
 
 /**
- * Bridge Foundry's own themeable custom properties to the scope's ATLAS vars, so core-styled
- * chrome inside a framed application follows the picked theme without per-module overrides.
- * Emitted through `:where()` so it outranks core's `.application` defaults while any rule a
- * module writes for itself still wins.
+ * Bridge Foundry's own themeable custom properties to the scope's ATLAS vars.
  * @param {string} scope  CSS selector
  * @returns {string}
  */
@@ -227,7 +224,6 @@ function themeDocuments() {
 
 /**
  * Write or clear one scoped `<style>` element in each target document.
- * Resolving by id upserts in place, so repeated detach cycles never duplicate nodes.
  * @param {string} elId        Style element id
  * @param {string} scope       CSS selector
  * @param {string} [themeKey]  Theme key; omit or 'none' to clear
@@ -255,7 +251,7 @@ function writeBlock(elId, scope, themeKey, docs = themeDocuments()) {
  * Write a registered module's theme blocks without announcing a change.
  * @param {string} moduleId    Registered module id
  * @param {Document[]} [docs]  Target documents; defaults to main plus detached
- * @returns {object|null} The module's theme selection, or null when it has no themeable scope
+ * @returns {object|null}
  */
 function writeModuleBlocks(moduleId, docs) {
   const mod = getModule(moduleId);

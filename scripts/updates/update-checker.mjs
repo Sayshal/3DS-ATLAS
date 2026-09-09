@@ -44,8 +44,7 @@ async function postAvailableChat(pending) {
 }
 
 /**
- * Check every registered module: chat-whisper available versions (Update Notices) and
- * pop the changelog window for newly-installed ones (Changelogger). Each is independently toggled.
+ * Check every registered module.
  * @returns {Promise<void>}
  */
 export async function checkForUpdates() {
