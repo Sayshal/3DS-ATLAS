@@ -3163,6 +3163,7 @@
   "CALENDARIA.Settings.RegenerateWeather.Done": "Weather regenerated for all zones.",
   "CALENDARIA.Settings.RegenerateWeather.Hint": "Regenerate current weather and rebuild the forecast plan for all climate zones.",
   "CALENDARIA.Settings.RegenerateWeather.Name": "Regenerate Forecast",
+  "CALENDARIA.Settings.RemoveAllNotes.Button": "Remove Notes",
   "CALENDARIA.Settings.RemoveAllNotes.Confirm": "Delete all {count} calendar notes, including festival notes? This cannot be undone.",
   "CALENDARIA.Settings.RemoveAllNotes.Done": "Removed {count} calendar notes.",
   "CALENDARIA.Settings.RemoveAllNotes.Hint": "Delete every calendar note journal and forget which calendars were seeded with festivals. Do this before disabling or uninstalling Calendaria so no invalid journal pages are left behind.",
