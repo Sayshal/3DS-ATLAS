@@ -1,9 +1,3 @@
 ## New Features
 
-- A Settings Transfer application in the 3DS: ATLAS settings menu exports and imports settings for the registered 3DS modules you tick.
-- Exports write a dated JSON file. Imports skip settings the current user may not change, and prompt for a reload when one requires it.
-- An Ember theme preset with near-black slate surfaces and an ember-orange accent joins the shared theme picker.
-
-## Bug Fixes
-
-- 2 bugs squashed
+- Add/Update keys for: Glyph, Peddler, secret projects
