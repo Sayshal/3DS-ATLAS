@@ -2914,6 +2914,8 @@
   "CALENDARIA.Scene.ClimateZoneOverride.NoZones": "The calendar has no climate zones.",
   "CALENDARIA.Scene.DarknessSync.Hint": "Sync this scene's darkness level with the position of the sun. Use Global keeps the world setting.",
   "CALENDARIA.Scene.DarknessSync.Name": "Sync Darkness with Time",
+  "CALENDARIA.Scene.FxAboveDarknessOverride.Hint": "Override the global Above Darkness setting for this scene.",
+  "CALENDARIA.Scene.FxAboveDarknessOverride.Name": "Weather FX Above Darkness",
   "CALENDARIA.Scene.FxBackgroundOverride.Hint": "Override the global particle background setting for this scene.",
   "CALENDARIA.Scene.FxBackgroundOverride.Name": "Weather FX Background",
   "CALENDARIA.Scene.FxSplashOverride.Choices.Off": "No Splash",
