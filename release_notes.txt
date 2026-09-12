@@ -1,3 +1,3 @@
 ## New Features
 
-- Add/Update keys for: Glyph, Peddler, secret projects
+- Add/Update keys for: Calendaria, Glyph, Macro Keybinds
