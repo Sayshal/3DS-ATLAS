@@ -10044,6 +10044,7 @@
   "TENACITY.Midi.SaveBlindHint": "Save failed against DC {dc}. Spend Tenacity to flip it.",
   "TENACITY.Midi.SaveBumpPill": "Saves raised: +{n}",
   "TENACITY.Midi.SavePromptTitle": "Spend Tenacity on Save",
+  "TENACITY.Midi.SpendFailed": "{name} no longer has enough Tenacity to raise the save.",
   "TENACITY.Midi.TimedOut": "Tenacity spend timed out.",
   "TENACITY.Module.Name": "Tenacity",
   "TENACITY.PostHoc.AttackFlipChat": "<strong>{name}</strong> spent {amt} Tenacity to flip the attack ({from} -> {to}). New hits: {hits}.",
