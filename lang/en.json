@@ -9726,6 +9726,7 @@
   "SPELLBOOK.Manager.MergeLists.SpellListsHint": "Select at least 2 spell lists to merge.",
   "SPELLBOOK.Manager.MergeLists.SpellListsLabel": "Spell Lists to Merge",
   "SPELLBOOK.Manager.Rename.CurrentNameLabel": "Current Name",
+  "SPELLBOOK.Manager.Rename.DuplicateName": "Another custom spell list already uses this name.",
   "SPELLBOOK.Manager.Rename.NewNameLabel": "New Name",
   "SPELLBOOK.Manager.Rename.NewNamePlaceholder": "New name...",
   "SPELLBOOK.Manager.Rename.Title": "Rename \"{currentName}\"",
