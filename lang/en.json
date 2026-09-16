@@ -5422,6 +5422,8 @@
   "MINDFULENCOUNTERS.Seed.Title": "Seed Party Budget",
   "MINDFULENCOUNTERS.Settings.ActionsPerTurn.Hint": "How many actions each token may log per turn. 0 = unlimited.",
   "MINDFULENCOUNTERS.Settings.ActionsPerTurn.Name": "Actions per Turn",
+  "MINDFULENCOUNTERS.Settings.AutoOpenPanel.Hint": "Open the Mindful Encounters panel for players when the GM enables it on their scene.",
+  "MINDFULENCOUNTERS.Settings.AutoOpenPanel.Name": "Auto-Open Panel for Players",
   "MINDFULENCOUNTERS.Settings.CapMultiplier.Hint": "Multiplies system speed to set each token's budget. Requires the System Speed x Multiplier cap source.",
   "MINDFULENCOUNTERS.Settings.CapMultiplier.Name": "Cap Multiplier",
   "MINDFULENCOUNTERS.Settings.CapSource.Auto": "System Speed",
