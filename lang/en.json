@@ -5205,6 +5205,8 @@
   "HEROMANCER.Settings.Dicesonice.Name": "Enable 3D Dice",
   "HEROMANCER.Settings.DisableMulticlass.Hint": "Prevent players from adding a second class during character creation or level-up.",
   "HEROMANCER.Settings.DisableMulticlass.Name": "Disable Multiclassing",
+  "HEROMANCER.Settings.DisableSubclassFeatureList.Hint": "Show only a subclass's own description in the Identity tab, without the feature list built from its advancements.",
+  "HEROMANCER.Settings.DisableSubclassFeatureList.Name": "Hide Subclass Feature List",
   "HEROMANCER.Settings.DisableWelcomePopup.Hint": "Suppress the welcome dialog for every user in this world. Overrides each user's Show Welcome setting.",
   "HEROMANCER.Settings.DisableWelcomePopup.Name": "Disable Welcome Popup",
   "HEROMANCER.Settings.EnableCalendarNotes.Hint": "Write Calendaria notes for birthdays, character creation, and level-ups. Disable this while creating a batch of NPCs.",
