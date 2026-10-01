@@ -1314,6 +1314,8 @@
   "CALENDARIA.Cinematic.RunCinematic": "Cinematic Advance",
   "CALENDARIA.Cinematic.Settings.Enabled.Hint": "Show an animated overlay when time advances beyond the threshold.",
   "CALENDARIA.Cinematic.Settings.Enabled.Name": "Enable Cinematic Time Skip",
+  "CALENDARIA.Cinematic.Settings.EndHold.Hint": "How long the final date stays on screen before the cinematic closes.",
+  "CALENDARIA.Cinematic.Settings.EndHold.Name": "End Hold",
   "CALENDARIA.Cinematic.Settings.EventMaxCards.Hint": "Maximum number of event title cards shown during a cinematic.",
   "CALENDARIA.Cinematic.Settings.EventMaxCards.Name": "Max Event Cards",
   "CALENDARIA.Cinematic.Settings.EventWeighting.All": "All Events",
