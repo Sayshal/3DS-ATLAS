@@ -1,3 +1,7 @@
 ## New Features
 
-- Add/Update keys for: Minstrel
+- Add/Update keys for: Calendaria
+
+## Changes
+
+- Updated the pt-BR translation for Calendaria (thanks @Kharmans).
