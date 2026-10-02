@@ -3245,6 +3245,8 @@
   "HEROMANCER.Settings.Dicesonice.Name": "Ativar Dados 3D para Rolagens de Atributos",
   "HEROMANCER.Settings.DisableMulticlass.Hint": "Impede que os jogadores adicionem uma segunda classe durante a criação do personagem ou ao avanço de nível.",
   "HEROMANCER.Settings.DisableMulticlass.Name": "Desabilitar Multiclasse",
+  "HEROMANCER.Settings.DisableSubclassFeatureList.Hint": "Exibir apenas a descrição da própria subclasse na aba Identidade, sem a lista de características gerada a partir de seus avanços.",
+  "HEROMANCER.Settings.DisableSubclassFeatureList.Name": "Ocultar Lista de Características da Subclasse",
   "HEROMANCER.Settings.DisableWelcomePopup.Hint": "Suprime globalmente a janela de boas-vindas para todos os usuários deste mundo. Substitui a configuração Exibir Boas-Vindas de cada jogador.",
   "HEROMANCER.Settings.DisableWelcomePopup.Name": "Desabilitar Janela de Boas-Vindas",
   "HEROMANCER.Settings.EnableCalendarNotes.Hint": "Registra anotações no Calendaria para aniversários, criação de personagens e aumentos de nível. Desative esta opção ao criar vários PNJs em lote.",
