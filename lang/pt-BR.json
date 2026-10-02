@@ -292,6 +292,8 @@
   "CALENDARIA.Cinematic.RunCinematic": "Cinemática de Avanço",
   "CALENDARIA.Cinematic.Settings.Enabled.Hint": "Mostra uma sobreposição animada quando o tempo ultrapassar o limite definido.",
   "CALENDARIA.Cinematic.Settings.Enabled.Name": "Ativar Cinemática de Salto Temporal",
+  "CALENDARIA.Cinematic.Settings.EndHold.Hint": "Por quanto tempo a data final permanece na tela antes que a cinemática seja encerrada.",
+  "CALENDARIA.Cinematic.Settings.EndHold.Name": "Permanência Final",
   "CALENDARIA.Cinematic.Settings.EventMaxCards.Hint": "Número máximo de cartões de título de evento exibidos durante uma cinemática.",
   "CALENDARIA.Cinematic.Settings.EventMaxCards.Name": "Máximo de Cartões de Evento",
   "CALENDARIA.Cinematic.Settings.EventWeighting.All": "Todos os Eventos",
