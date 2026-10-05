@@ -1195,6 +1195,8 @@
   "CALENDARIA.Calendar.Hijri.Name": "Islamic (Hijri)",
   "CALENDARIA.Calendar.ImperialWarhammer.Description": "The Imperial Calendar of the Old World, used in Warhammer Fantasy. Features the erratic Chaos Moon Morrslieb with randomized phases.",
   "CALENDARIA.Calendar.ImperialWarhammer.Name": "Imperial (Warhammer)",
+  "CALENDARIA.Calendar.IntergalacticAstramark.Description": "The Intergalactic Astramark of Trisurus: 12 months of 30 days, with 10-day cycles counted from the Eleventh Extinction.",
+  "CALENDARIA.Calendar.IntergalacticAstramark.Name": "Intergalactic Astramark",
   "CALENDARIA.Calendar.KrynnElven.Description": "The elven calendar of Krynn, used by the Qualinesti and Silvanesti.",
   "CALENDARIA.Calendar.KrynnElven.Name": "Krynn (Elven)",
   "CALENDARIA.Calendar.KrynnSolamnia.Description": "The Solamnic calendar of Krynn, used by humans of Ansalon.",
