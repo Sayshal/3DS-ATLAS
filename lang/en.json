@@ -868,6 +868,7 @@
   "BONDSMITH.Presets.Renown.Name": "Renown",
   "BONDSMITH.Presets.Simple.Name": "Simple (5-tier)",
   "BONDSMITH.Relations.ChatType.actorFaction": "Relation",
+  "BONDSMITH.Relations.ChatType.actorToLocation": "Relation",
   "BONDSMITH.Relations.ChatType.faction": "Relation",
   "BONDSMITH.Relations.ChatType.factionToFaction": "Relation",
   "BONDSMITH.Relations.ChatType.factionToLocation": "Relation",
