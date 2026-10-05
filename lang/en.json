@@ -5018,6 +5018,8 @@
   "HEROMANCER.App.Welcome.Player.StepSubmit": "Press Create Character to finish. If your GM requires approval, the button reads Submit for Approval and the wizard locks until they review your submission. A banner shows the reason if it was rejected.",
   "HEROMANCER.App.Welcome.Player.StepTabs": "Fill out all the information you can on each tab and sub-tab before finalizing your character.",
   "HEROMANCER.App.Welcome.Title": "Welcome to Hero Mancer 2",
+  "HEROMANCER.Approval.Banner.one": "{count} pending character awaits review.",
+  "HEROMANCER.Approval.Banner.other": "{count} pending characters await review.",
   "HEROMANCER.Approval.BannerOpen": "Open Queue",
   "HEROMANCER.Approval.Queue.ClearArchive.Action": "Clear Archive",
   "HEROMANCER.Approval.Queue.ClearArchive.Body": "Delete all archived submissions? This cannot be undone.",
