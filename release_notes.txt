@@ -1,3 +1,7 @@
 ## New Features
 
-- Add/Update keys for: ATLAS, Glyph, Hero Mancer, Mindful Encounters, Minstrel, Spell Book
+- Add/Update keys for: Bondsmith, Peddler
+
+## Changes
+
+- Updated the pt-BR translation for Calendaria and Hero Mancer (thanks @Kharmans).
