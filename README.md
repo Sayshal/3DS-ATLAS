@@ -2,6 +2,8 @@
 
 **A**pplication **T**oolkit, **L**ibraries, **A**PIs & **S**ervices. The one dependency behind every 3 Death Saves module.
 
+![3DS:ATLAS Hero](https://wiki.3deathsaves.com/3ds-atlas/hero.png)
+
 ![GitHub release](https://img.shields.io/github/v/release/Sayshal/3ds-atlas?style=for-the-badge)
 ![GitHub Downloads](<https://img.shields.io/github/downloads/Sayshal/3ds-atlas/module.zip?style=for-the-badge&logo=foundryvirtualtabletop&logoColor=white&label=Downloads%20(Total)&color=ff144f>)
 ![Foundry Version](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dfor-the-badge%26url%3Dhttps%3A%2F%2Fgithub.com%2FSayshal%2F3ds-atlas%2Freleases%2Flatest%2Fdownload%2Fmodule.json)
@@ -18,6 +20,11 @@
 - **Logging**: one level-controlled logger the modules share.
 - **Primary GM**: names the one GM client that runs suite automation, so a second connected GM does not duplicate it.
 - **Event relay**: re-fires a module's allowlisted hooks on every client, optionally through a single GM.
+
+<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-config.png" alt="3DS Themes picker" width="750">
+<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-editor.png" alt="Theme Editor" width="750">
+<img src="https://wiki.3deathsaves.com/3ds-atlas/changelogger.png" alt="Changelogger" width="750">
+<img src="https://wiki.3deathsaves.com/3ds-atlas/troubleshooter.png" alt="3DS Troubleshooter" width="750">
 
 ---
 
