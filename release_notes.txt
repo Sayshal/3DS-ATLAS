@@ -1,7 +1,3 @@
 ## New Features
 
-- Add/Update keys for: Bondsmith, Peddler
-
-## Changes
-
-- Updated the pt-BR translation for Calendaria and Hero Mancer (thanks @Kharmans).
+- Add/Update keys for: Peddler, Roll Call

@@ -1,3 +1,3 @@
 ## New Features
 
-- Add/Update keys for: Bondsmith, Peddler
+- Add/Update keys for: Peddler, Roll Call
