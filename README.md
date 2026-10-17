@@ -13,18 +13,28 @@
 
 ## What It Does
 
-- **Theme engine**: presets, a color editor, and per-module theming for the whole suite.
-- **Changelogger**: pops up release notes after a 3DS module updates.
+**Theme presets:** Pick a preset for the whole suite, or give each module its own.
+
+<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-config.png" alt="3DS Themes picker" width="750">
+
+**Theme editor:** Build your own palette in the color editor.
+
+<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-editor.png" alt="Theme Editor" width="750">
+
+**Changelogger:** Pops up release notes after a 3DS module updates.
+
+<img src="https://wiki.3deathsaves.com/3ds-atlas/changelogger.png" alt="Changelogger" width="750">
+
+**Troubleshooter:** Scoped diagnostics you can export for a bug report.
+
+<img src="https://wiki.3deathsaves.com/3ds-atlas/troubleshooter.png" alt="3DS Troubleshooter" width="750">
+
+### Also Included
+
 - **Update notices**: drops a chat message when a newer version of a 3DS module is out.
-- **Troubleshooter**: scoped diagnostics you can export for a bug report.
 - **Logging**: one level-controlled logger the modules share.
 - **Primary GM**: names the one GM client that runs suite automation, so a second connected GM does not duplicate it.
 - **Event relay**: re-fires a module's allowlisted hooks on every client, optionally through a single GM.
-
-<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-config.png" alt="3DS Themes picker" width="750">
-<img src="https://wiki.3deathsaves.com/3ds-atlas/theme-editor.png" alt="Theme Editor" width="750">
-<img src="https://wiki.3deathsaves.com/3ds-atlas/changelogger.png" alt="Changelogger" width="750">
-<img src="https://wiki.3deathsaves.com/3ds-atlas/troubleshooter.png" alt="3DS Troubleshooter" width="750">
 
 ---
 
