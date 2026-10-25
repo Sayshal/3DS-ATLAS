@@ -4,11 +4,8 @@ import { getRegisteredModules } from './registry.mjs';
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-/** @type {string} Public endpoint that forwards troubleshooter submissions to the Discord support forum. */
-const SUPPORT_URL = 'https://www.3deathsaves.com/support-report';
-
-/** @type {string} Invite link to the 3 Death Saves Discord server. */
-const DISCORD_INVITE = 'https://discord.gg/PzzUwU9gdz';
+/** @type {string} Parks a report on 3deathsaves.com; the user confirms it there after signing in with Discord. */
+const REPORT_PENDING_URL = 'https://www.3deathsaves.com/report-pending';
 
 /** Shared troubleshooter for all 3DS modules — scoped diagnostics for bug reports. */
 export default class Troubleshooter extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -81,26 +78,41 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
   }
 
   /**
-   * Prompt for a quick description, then post the report to the Discord support forum.
+   * Collect the report in Foundry, park it on 3deathsaves.com, and open the confirmation window
+   * where the user signs in with Discord and submits it.
    * @returns {Promise<void>}
    */
   static async #onSendToSupport() {
+    const modules = [...getRegisteredModules().values()];
+    const moduleOptions = modules.map((m) => `<option value="${m.id}"${m.id === this.#scope ? ' selected' : ''}>${m.title}</option>`).join('');
     const content = `
+      ${
+        this.#scope === 'all'
+          ? `<div class="form-group">
+        <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.Module')}</label>
+        <select name="module" required><option value="" disabled selected>…</option>${moduleOptions}</select>
+      </div>`
+          : ''
+      }
+      <div class="form-group">
+        <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.Summary')}</label>
+        <input type="text" name="title" maxlength="120" required>
+      </div>
       <div class="form-group stacked">
         <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.Description')}</label>
         <textarea name="description" rows="4" required></textarea>
       </div>
-      <div class="form-group">
-        <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.DiscordName')}</label>
-        <input type="text" name="discordName" required>
+      <div class="form-group stacked">
+        <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.Steps')}</label>
+        <textarea name="steps" rows="3"></textarea>
       </div>
       <div class="form-group">
         <label>${game.i18n.localize('ATLAS.Troubleshooter.Support.Isolated')}</label>
         <input type="checkbox" name="isolated">
       </div>`;
     const result = await foundry.applications.api.DialogV2.prompt({
-      window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fab fa-discord' },
-      position: { width: 480 },
+      window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug' },
+      position: { width: 520 },
       content,
       ok: {
         label: 'ATLAS.Troubleshooter.Support.Post',
@@ -110,41 +122,38 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
       rejectClose: false
     });
     if (!result) return;
-    if (!result.description?.trim() || !result.discordName?.trim()) return void ui.notifications.warn('ATLAS.Troubleshooter.Support.Required');
+    const moduleId = this.#scope === 'all' ? result.module : this.#scope;
+    if (!moduleId || !result.title?.trim() || !result.description?.trim()) return void ui.notifications.warn('ATLAS.Troubleshooter.Support.Required');
 
-    const entry = this.#scope === 'all' ? null : getRegisteredModules().get(this.#scope);
     const payload = {
+      type: 'bug',
+      module: moduleId,
+      title: result.title.trim(),
       description: result.description.trim(),
-      discordName: result.discordName.trim(),
-      foundry: `Version ${game.release.generation} Build ${game.release.build}`,
-      system: `${game.system.id} ${game.system.version}`,
-      module: entry ? `${entry.title} ${game.modules.get(entry.id)?.version ?? ''}`.trim() : `All 3DS modules (ATLAS ${game.modules.get(MODULE.ID)?.version})`,
-      moduleTitle: entry?.title ?? '',
+      steps: result.steps?.trim() ?? '',
       browser: this.#clientName(),
-      isolated: result.isolated ? 'Yes' : 'No',
-      report: await renderFullReport(this.#scope, this.#system, 'export')
+      isolated: result.isolated ? 'yes' : 'no',
+      report: await renderFullReport(moduleId, this.#system, 'export')
     };
 
     let response;
     try {
-      response = await fetch(SUPPORT_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      response = await fetch(REPORT_PENDING_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     } catch {
       return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed');
     }
-    if (response.status === 429) return void ui.notifications.warn('ATLAS.Troubleshooter.Support.RateLimited');
     if (!response.ok) return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed');
 
-    const { url, memberFound } = await response.json();
-    const lines = [
-      `<p>${game.i18n.localize('ATLAS.Troubleshooter.Support.Posted')}</p>`,
-      `<p>${game.i18n.localize(memberFound ? 'ATLAS.Troubleshooter.Support.MemberFound' : 'ATLAS.Troubleshooter.Support.MemberMissing')}</p>`
-    ];
-    if (!memberFound) lines.push(`<p><a href="${DISCORD_INVITE}" target="_blank" rel="noopener">${DISCORD_INVITE}</a></p>`);
-    lines.push(`<p><a href="${url}" target="_blank" rel="noopener">${url}</a></p>`);
-    await foundry.applications.api.DialogV2.prompt({
-      window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fab fa-discord' },
-      content: lines.join(''),
-      rejectClose: false
-    });
+    const { url } = await response.json();
+    const popup = window.open(url, 'atlas-report', 'popup,width=560,height=760');
+    if (!popup) {
+      await foundry.applications.api.DialogV2.prompt({
+        window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug' },
+        content: `<p>${game.i18n.localize('ATLAS.Troubleshooter.Support.PopupBlocked')}</p><p><a href="${url}" target="_blank" rel="noopener">${url}</a></p>`,
+        rejectClose: false
+      });
+      return;
+    }
+    ui.notifications.info('ATLAS.Troubleshooter.Support.Parked');
   }
 }
