@@ -51,7 +51,7 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
    */
   static async #onCopyReport() {
     await game.clipboard.copyPlainText(await renderFullReport(this.#scope, this.#system, 'copy'));
-    ui.notifications.info('ATLAS.Troubleshooter.Copied');
+    ui.notifications.info('ATLAS.Troubleshooter.Copied', { localize: true });
   }
 
   /**
@@ -64,7 +64,7 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
     const stamp = `${p(d.getMonth() + 1)}-${p(d.getDate())}-${d.getFullYear()}-${p(d.getHours())}${p(d.getMinutes())}`;
     const scope = this.#scope === 'all' ? 'ALL' : this.#scope;
     foundry.utils.saveDataToFile(await renderFullReport(this.#scope, this.#system, 'export'), 'text/markdown', `3DSATLAS_TROUBLESHOOTER_${scope}_${stamp}.md`);
-    ui.notifications.info('ATLAS.Troubleshooter.Exported');
+    ui.notifications.info('ATLAS.Troubleshooter.Exported', { localize: true });
   }
 
   /**
@@ -111,7 +111,8 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
         <input type="checkbox" name="isolated">
       </div>`;
     const result = await foundry.applications.api.DialogV2.prompt({
-      window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug' },
+      classes: ['atlas', 'atlas-report'],
+      window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug', contentClasses: ['standard-form'] },
       position: { width: 520 },
       content,
       ok: {
@@ -123,7 +124,7 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
     });
     if (!result) return;
     const moduleId = this.#scope === 'all' ? result.module : this.#scope;
-    if (!moduleId || !result.title?.trim() || !result.description?.trim()) return void ui.notifications.warn('ATLAS.Troubleshooter.Support.Required');
+    if (!moduleId || !result.title?.trim() || !result.description?.trim()) return void ui.notifications.warn('ATLAS.Troubleshooter.Support.Required', { localize: true });
 
     const payload = {
       type: 'bug',
@@ -133,27 +134,28 @@ export default class Troubleshooter extends HandlebarsApplicationMixin(Applicati
       steps: result.steps?.trim() ?? '',
       browser: this.#clientName(),
       isolated: result.isolated ? 'yes' : 'no',
-      report: await renderFullReport(moduleId, this.#system, 'export')
+      report: await renderFullReport('all', this.#system, 'export')
     };
 
     let response;
     try {
       response = await fetch(REPORT_PENDING_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     } catch {
-      return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed');
+      return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed', { localize: true });
     }
-    if (!response.ok) return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed');
+    if (!response.ok) return void ui.notifications.error('ATLAS.Troubleshooter.Support.Failed', { localize: true });
 
     const { url } = await response.json();
     const popup = window.open(url, 'atlas-report', 'popup,width=560,height=760');
     if (!popup) {
       await foundry.applications.api.DialogV2.prompt({
-        window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug' },
+        classes: ['atlas', 'atlas-report'],
+        window: { title: 'ATLAS.Troubleshooter.Support.Title', icon: 'fas fa-bug', contentClasses: ['standard-form'] },
         content: `<p>${game.i18n.localize('ATLAS.Troubleshooter.Support.PopupBlocked')}</p><p><a href="${url}" target="_blank" rel="noopener">${url}</a></p>`,
         rejectClose: false
       });
       return;
     }
-    ui.notifications.info('ATLAS.Troubleshooter.Support.Parked');
+    ui.notifications.info('ATLAS.Troubleshooter.Support.Parked', { localize: true });
   }
 }
