@@ -114,6 +114,7 @@ function buildAppCss(scope) {
   const checkBeforeSel = checkParts.map((c) => `${c}:not(:checked):not(:indeterminate)::before`).join(',');
   const rangeSel = roots.map((r) => `${r} input[type='range']`).join(',');
   const btnSel = roots.map((r) => `${r} :is(a.button, button, kbd)`).join(',');
+  const btnDisabledSel = roots.map((r) => `${r} :is(a.button, button, kbd)[disabled]`).join(',');
   return `
 ${sel} {
   --background: var(--${ns}-bg);
@@ -160,6 +161,14 @@ ${btnSel} {
   --button-hover-border-color: var(--${ns}-primary);
   --button-hover-text-color: var(--${ns}-button-text);
   --button-text-color: var(--${ns}-button-text);
+}
+${btnDisabledSel} {
+  --button-background-color: var(--${ns}-bg);
+  --button-border-color: transparent;
+  --button-text-color: var(--${ns}-text-dim);
+  --button-hover-background-color: var(--button-background-color);
+  --button-hover-border-color: var(--button-border-color);
+  --button-hover-text-color: var(--button-text-color);
 }
 ${checkSel} {
   --checkbox-background-color: var(--${ns}-border-light);

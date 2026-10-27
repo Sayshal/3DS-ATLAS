@@ -229,6 +229,16 @@
     --button-text-color: var(--atlas-button-text);
   }
 
+  a.button[disabled],
+  button[disabled] {
+    --button-background-color: var(--atlas-bg);
+    --button-border-color: transparent;
+    --button-text-color: var(--atlas-text-dim);
+    --button-hover-background-color: var(--button-background-color);
+    --button-hover-border-color: var(--button-border-color);
+    --button-hover-text-color: var(--button-text-color);
+  }
+
   h1,
   h2,
   h3,
