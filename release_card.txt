@@ -1,3 +1,4 @@
 ## New Features
 
-- Add/Update keys for: Calendaria, Glyph, Mindful Encounters, Peddler, Roll Call
+- Add/Update keys for: ATLAS, Peddler
+- Support reports now go through 3deathsaves.com with Discord sign-in instead of a direct forum post

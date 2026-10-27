@@ -1,3 +1,12 @@
 ## New Features
 
-- Add/Update keys for: Calendaria, Glyph, Mindful Encounters, Peddler, Roll Call
+- Add/Update keys for: ATLAS, Peddler
+- Support report dialog asks for a summary, description, steps and isolation result, plus the module when opened from the all-modules scope
+- Support reports are now sent to 3deathsaves.com, where the reporter confirms after signing in with Discord
+- Support reports no longer ask for a Discord username or post directly to the forum
+
+## Changes
+
+- Troubleshooter notifications are now localized
+- Troubleshooter support report always attaches the full report for all modules, not just the selected one
+- Troubleshooter support report dialogs use ATLAS window styling
