@@ -1,4 +1,7 @@
 ## New Features
 
-- Add/Update keys for: ATLAS, Peddler
-- Support reports now go through 3deathsaves.com with Discord sign-in instead of a direct forum post
+- Add/Update keys for: Calendaria, Glyph, Levelheaded, Minstrel, Peddler
+
+## Bug Fixes
+
+- 1 bug squashed
