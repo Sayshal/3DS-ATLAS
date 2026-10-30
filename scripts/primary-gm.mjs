@@ -10,12 +10,21 @@ export function gmChoices() {
   return choices;
 }
 
+/** @type {string|undefined} Chosen primary GM user id, read once and cleared when the setting changes. */
+let chosenId;
+
+/** Forget the cached primary GM choice after the setting changes. */
+export function resetPrimaryGM() {
+  chosenId = undefined;
+}
+
 /**
  * The GM that executes suite automation.
  * @returns {object|null}
  */
 export function getPrimaryGM() {
-  const chosen = game.users.get(game.settings.get(MODULE.ID, SETTINGS.PRIMARY_GM));
+  chosenId ??= game.settings.get(MODULE.ID, SETTINGS.PRIMARY_GM);
+  const chosen = game.users.get(chosenId);
   if (chosen?.active && chosen.isGM) return chosen;
   return game.users.activeGM ?? null;
 }
