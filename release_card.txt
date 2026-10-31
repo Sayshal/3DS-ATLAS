@@ -1,7 +1,3 @@
 ## New Features
 
-- Add/Update keys for: Calendaria, Glyph, Levelheaded, Minstrel, Peddler
-
-## Bug Fixes
-
-- 1 bug squashed
+- Add/Update keys for: Calendaria, Minstrel, Peddler

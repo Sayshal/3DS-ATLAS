@@ -1,7 +1,7 @@
 ## New Features
 
-- Add/Update keys for: Calendaria, Glyph, Levelheaded, Minstrel, Peddler
+- Add/Update keys for: Calendaria, Minstrel, Peddler
 
-## Bug Fixes
+## Changes
 
-- Disabled buttons in themed windows now appear dimmed and no longer highlight on hover
+- Cache the Primary GM choice instead of re-reading the setting on every check
