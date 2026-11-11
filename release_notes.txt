@@ -1,7 +1,3 @@
 ## New Features
 
-- Add/Update keys for: Calendaria, Minstrel, Peddler
-
-## Changes
-
-- Cache the Primary GM choice instead of re-reading the setting on every check
+- Add/Update keys for: Peddler
