@@ -11023,6 +11023,8 @@
   "ROLLCALL.Settings.FocusOnDevice.Name": "Use Focus Mode",
   "ROLLCALL.Settings.FocusSelectors.Hint": "Comma-separated CSS selectors to also hide.",
   "ROLLCALL.Settings.FocusSelectors.Name": "Extra Elements to Hide",
+  "ROLLCALL.Settings.HealthBars.Hint": "When everyone sees combatants' token bars during combat. Default keeps each token's own setting. Privacy rules still apply.",
+  "ROLLCALL.Settings.HealthBars.Name": "Token Bars in Combat",
   "ROLLCALL.Settings.HealthBuckets.Hint": "Each label applies at or below its percentage.",
   "ROLLCALL.Settings.HealthBuckets.Name": "Health Buckets",
   "ROLLCALL.Settings.HealthCanvas.Hint": "When to show health labels under tokens.",
