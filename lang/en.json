@@ -11491,6 +11491,8 @@
   "SPELLBOOK.Manager.CreateList.MultiMergedDescription": "Merged spell list combining {count} lists: {listNames}",
   "SPELLBOOK.Manager.CreateList.SubclassHint": "Mark this spell list as subclass-specific.",
   "SPELLBOOK.Manager.CreateList.SubclassLabel": "Subclass Spell List",
+  "SPELLBOOK.Manager.DefaultList.Label": "Default for New Characters",
+  "SPELLBOOK.Manager.DefaultList.Tooltip": "Characters gaining this class or subclass get this list assigned. Characters already configured for it keep their current lists.",
   "SPELLBOOK.Manager.Documentation.Creation.Content": "Pick a list in the sidebar. The first edit automatically duplicates standard lists so the originals stay untouched. Changes are stored when the list is saved.",
   "SPELLBOOK.Manager.Documentation.Creation.Step1": "Select a spell list from the sidebar, or use Create List to start a blank one.",
   "SPELLBOOK.Manager.Documentation.Creation.Step2": "The sidebar switches to filters when a list is selected. Use the filters to search and narrow available spells.",
