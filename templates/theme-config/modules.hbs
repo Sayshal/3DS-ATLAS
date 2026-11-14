@@ -11,7 +11,7 @@
     {{#each modules as |mod|}}
       <div class="form-group">
         <label>
-          {{#if mod.swatch}}<span class="atlas-swatch" style="--atlas-swatch: {{mod.swatch}}"></span>{{/if}}
+          <span class="atlas-swatch{{#unless mod.swatch}} empty{{/unless}}" style="--atlas-swatch: {{mod.swatch}}"></span>
           {{mod.title}}
         </label>
         <div class="form-fields">
@@ -28,7 +28,7 @@
         <div class="form-group atlas-app-group">
           <label>{{app.label}}</label>
           <div class="form-fields">
-            {{> "modules/3ds-atlas/templates/theme-config/select.hbs" sel=app.select moduleId=../mod.id appKey=app.key}}
+            {{> "modules/3ds-atlas/templates/theme-config/select.hbs" sel=app.select moduleId=mod.id appKey=app.key}}
           </div>
         </div>
       {{/each}}

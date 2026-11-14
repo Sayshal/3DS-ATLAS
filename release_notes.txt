@@ -1,3 +1,19 @@
 ## New Features
 
-- Add/Update keys for: Peddler
+- Add/Update keys for: ATLAS, Bondsmith, Glyph, Hero Mancer, Levelheaded, Mindful Encounters, Minstrel, Peddler, Roll Call, Rollies, Spell Book, Travel Pace
+- Theme editor redesigned as a two-pane window with compact color fields, a live preview that updates while dragging a color, and a contrast panel showing WCAG ratios with pass/warn icons
+- Theme editor saves changes when a color is committed, and Reset replaces Save to restore the theme as it was when the editor opened
+- Theme engine now sets a `--atlas-scheme: light|dark` property alongside `color-scheme`
+
+## Bug Fixes
+
+- Docs search now times out after 5 seconds when the wiki server is unreachable
+- Sub-theme selections now save to the correct module instead of an empty module id
+- Theme picker rows now align on a grid, including per-application sub-theme rows, and modules without a swatch get an empty placeholder
+- Troubleshooter report now builds the dnd5e "CompendiumBrowser Sources (enabled)" list with the system's collateSources(), matching the compendium browser on dnd5e 6.1
+
+## Changes
+
+- Rebalanced every theme preset except Amberwood for readability, with text and icon contrast meeting WCAG thresholds, and no preset uses the same color for accent and warning
+- Redesigned the Beeswax, Neon, Newsprint, Parchment, Pewter, Sakura, Steampunk, Velvet and Verdant presets, and Dark is now a warmer Foundry-derived palette
+- Theme engine skips rewriting unchanged style blocks

@@ -5,9 +5,31 @@
   }
 
   .atlas-module-list {
-    gap: 0.25rem;
-    display: flex;
-    flex-direction: column;
+    gap: 0.25rem 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1fr) auto;
+    align-items: center;
+
+    > .notes,
+    > .atlas-all-divider,
+    > .atlas-empty {
+      grid-column: 1 / -1;
+    }
+
+    > .form-group {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      margin: 0;
+
+      > .form-fields {
+        display: contents;
+      }
+    }
+  }
+
+  .atlas-all-group select {
+    grid-column: 2 / -1;
   }
 
   .atlas-swatch {
@@ -19,6 +41,10 @@
     border-radius: 50%;
     vertical-align: middle;
     background: var(--atlas-swatch);
+
+    &.empty {
+      visibility: hidden;
+    }
   }
 
   .atlas-force {
@@ -28,9 +54,8 @@
   }
 
   .atlas-app-group {
-    padding-left: 1.25rem;
-
     > label {
+      padding-left: 1.1rem;
       color: var(--atlas-text-secondary);
       font-size: var(--font-size-13);
     }
@@ -110,26 +135,338 @@
   .window-content {
     display: flex;
     flex-direction: column;
-    max-height: 80vh;
     overflow: hidden;
   }
 
-  .atlas-theme-editor-body {
+  .atlas-editor-body {
+    gap: 1rem;
+    display: grid;
     flex: 1 1 auto;
+    grid-template-columns: minmax(0, 1fr) 24rem;
+    min-height: 0;
+  }
+
+  .atlas-editor-controls {
+    gap: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    > .form-group {
+      margin: 0;
+    }
+  }
+
+  .atlas-color-group {
+    gap: 0.3rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    legend {
+      float: left;
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+  }
+
+  .atlas-color-group legend,
+  .atlas-editor-heading {
+    margin: 0 0 0.1rem;
+    padding: 0 0 0.15rem;
+    border-bottom: thin solid var(--atlas-divider);
+    color: var(--atlas-text-heading);
+    font-weight: 600;
+    font-size: var(--font-size-12);
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .atlas-color-field {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+
+    > span {
+      overflow: hidden;
+      font-size: var(--font-size-12);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  color-picker {
+    gap: 0.25rem;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+
+    &:hover,
+    &:focus-within {
+      outline: none;
+    }
+
+    input[type='text'] {
+      width: 4.75rem;
+      height: 1.6rem;
+      font-family: var(--font-mono, monospace);
+      font-size: var(--font-size-12);
+    }
+
+    input[type='color'] {
+      flex: 0 0 1.6rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      padding: 0;
+      overflow: hidden;
+      border: thin solid var(--atlas-border);
+      border-radius: 0.25rem;
+      background: none;
+      cursor: pointer;
+
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      &::-webkit-color-swatch {
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .atlas-editor-side {
+    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     overflow-y: auto;
   }
 
-  .atlas-color-group {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border: thin solid var(--atlas-border-light);
-    border-radius: 0.25rem;
+  .atlas-editor-preview {
+    overflow: hidden;
+    border: thin solid var(--atlas-border);
+    border-radius: 0.375rem;
+    background: var(--atlas-bg);
+    box-shadow: 0 0.25rem 1rem var(--atlas-shadow-color);
+    color: var(--atlas-text);
+    font-size: var(--font-size-12);
+  }
 
-    legend {
+  .atlas-pv-head {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    border-bottom: thin solid var(--atlas-divider);
+    background: var(--atlas-bg-lighter);
+    color: var(--atlas-title-text);
+    font-weight: 600;
+
+    i {
+      color: var(--atlas-accent);
+    }
+  }
+
+  .atlas-pv-body {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+  }
+
+  .atlas-pv-list {
+    padding: 0.35rem 0;
+    border-right: thin solid var(--atlas-divider);
+    background: var(--atlas-bg-lighter);
+  }
+
+  .atlas-pv-group {
+    padding: 0.2rem 0.5rem;
+    color: var(--atlas-text-heading);
+    font-weight: 700;
+  }
+
+  .atlas-pv-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem 0.5rem;
+    border-left: 0.15rem solid transparent;
+
+    small {
+      color: var(--atlas-text-secondary);
+      font-size: 0.85em;
+    }
+
+    &.hover {
+      background: var(--atlas-bg-hover);
+    }
+
+    &.selected {
+      border-left-color: var(--atlas-primary);
+      background: var(--atlas-selected-bg);
+    }
+  }
+
+  .atlas-pv-pane {
+    gap: 0.45rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.6rem;
+
+    h4 {
+      margin: 0;
+      border: none;
+      color: var(--atlas-title-text);
+    }
+  }
+
+  .atlas-pv-input {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0.4rem;
+    border: thin solid var(--atlas-border);
+    border-radius: 0.2rem;
+    background: var(--atlas-input-bg);
+    color: var(--atlas-text-dim);
+  }
+
+  .atlas-pv-hint {
+    margin: -0.25rem 0 0;
+    color: var(--atlas-text-dim);
+    font-size: 0.9em;
+  }
+
+  .atlas-pv-callout {
+    padding: 0.3rem 0.5rem;
+    border-left: 0.2rem solid var(--atlas-callout-border);
+    background: var(--atlas-callout-bg);
+    color: var(--atlas-callout-text);
+  }
+
+  .atlas-pv-chips,
+  .atlas-pv-days {
+    gap: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    span {
+      padding: 0.1rem 0.4rem;
+      border: thin solid currentcolor;
+      border-radius: 1rem;
+    }
+
+    .ok {
+      color: var(--atlas-success);
+    }
+
+    .warn {
+      color: var(--atlas-warning);
+    }
+
+    .err {
+      color: var(--atlas-error);
+    }
+
+    .acc {
+      color: var(--atlas-accent);
+    }
+  }
+
+  .atlas-pv-days span {
+    border-color: transparent;
+    border-radius: 0.2rem;
+
+    &.wd {
+      color: var(--atlas-weekday-header);
+      font-weight: 700;
+    }
+
+    &.rest {
+      color: var(--atlas-rest-day);
+    }
+
+    &.today {
+      border-color: var(--atlas-today);
+      background: var(--atlas-highlight-bg);
+    }
+  }
+
+  .atlas-pv-foot {
+    gap: 0.4rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.4rem 0.6rem;
+    border-top: thin solid var(--atlas-divider);
+  }
+
+  .atlas-pv-btn {
+    padding: 0.2rem 0.6rem;
+    border: thin solid var(--atlas-button-border);
+    border-radius: 0.2rem;
+    background: var(--atlas-button-bg);
+    color: var(--atlas-button-text);
+
+    &.primary {
+      border-color: var(--atlas-primary);
+      background: var(--atlas-primary);
+      color: var(--atlas-text-on-color);
+    }
+  }
+
+  .atlas-editor-checks {
+    gap: 0.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      gap: 0.4rem;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-12);
+    }
+
+    .atlas-check-sample {
       padding: 0 0.35rem;
-      color: var(--atlas-text-heading);
-      font-weight: 600;
+      border: thin solid var(--atlas-border-light);
+      border-radius: 0.2rem;
+      font-weight: 700;
+    }
+
+    .atlas-check-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      color: var(--atlas-text-secondary);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .atlas-check-ratio {
+      font-variant-numeric: tabular-nums;
+    }
+
+    i {
+      color: var(--atlas-success);
+    }
+
+    li.fail {
+      i,
+      .atlas-check-ratio {
+        color: var(--atlas-warning);
+        font-weight: 700;
+      }
     }
   }
 

@@ -83,17 +83,31 @@ export function getAppScopes(themeConfig) {
 }
 
 /**
+ * Every custom property and scheme declaration a theme scope sets, as `[property, value]` pairs.
+ * @param {Object<string, string>} colors  Color map
+ * @returns {Array<string[]>}
+ */
+export function themeDeclarations(colors) {
+  const scheme = colors.bg && isLight(colors.bg) ? 'light' : 'dark';
+  return [
+    ...Object.entries(colors)
+      .filter(([, value]) => value)
+      .map(([key, value]) => [cssVar(key), value]),
+    ...Object.entries(generateDerivedColors(colors)),
+    ['color-scheme', scheme],
+    [`--${CSS_NAMESPACE}-scheme`, scheme],
+    ['--color-scrollbar', `var(${cssVar('border')})`]
+  ];
+}
+
+/**
  * Build the CSS text for a scoped theme block.
  * @param {string} scope                   CSS selector
  * @param {Object<string, string>} colors  Color map
  * @returns {string}
  */
 function buildScopedCss(scope, colors) {
-  const decls = [];
-  for (const [key, value] of Object.entries(colors)) if (value) decls.push(`${cssVar(key)}: ${value};`);
-  for (const [name, value] of Object.entries(generateDerivedColors(colors))) decls.push(`${name}: ${value};`);
-  decls.push(`color-scheme: ${colors.bg && isLight(colors.bg) ? 'light' : 'dark'};`);
-  decls.push(`--color-scrollbar: var(${cssVar('border')});`);
+  const decls = themeDeclarations(colors).map(([name, value]) => `${name}: ${value};`);
   return `${scope} {\n  ${decls.join('\n  ')}\n}${buildAppCss(scope)}${buildHeaderCss(scope)}`;
 }
 
@@ -252,7 +266,7 @@ function writeBlock(elId, scope, themeKey, docs = themeDocuments()) {
       styleEl.id = elId;
       doc.head.appendChild(styleEl);
     }
-    styleEl.textContent = css;
+    if (styleEl.textContent !== css) styleEl.textContent = css;
   }
 }
 

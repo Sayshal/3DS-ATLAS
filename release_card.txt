@@ -1,3 +1,9 @@
 ## New Features
 
-- Add/Update keys for: Peddler
+- Add/Update keys for: ATLAS, Bondsmith, Glyph, Hero Mancer, Levelheaded, Mindful Encounters, Minstrel, Peddler, Roll Call, Rollies, Spell Book, Travel Pace
+- Theme editor redesigned with a live preview and a WCAG contrast panel
+- Theme presets rebalanced for readability, with nine presets redesigned
+
+## Bug Fixes
+
+- 4 bugs squashed
