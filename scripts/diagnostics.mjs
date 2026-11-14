@@ -34,13 +34,8 @@ function collectTheme(moduleId) {
  */
 export function dnd5eSourceLines() {
   if (game.system.id !== 'dnd5e') return [];
-  const sources = game.settings.get('dnd5e', 'packSourceConfiguration') ?? {};
-  const enabled = [];
-  for (const { collection, documentName } of game.packs) {
-    if (documentName !== 'Actor' && documentName !== 'Item') continue;
-    if (sources[collection] !== false) enabled.push(collection);
-  }
-  return ['#### CompendiumBrowser Sources (enabled)', '', ...enabled.sort().map((c) => `- ${c}`)];
+  const enabled = [...dnd5e.applications.settings.CompendiumBrowserSettingsConfig.collateSources()].sort();
+  return ['#### CompendiumBrowser Sources (enabled)', '', ...enabled.map((c) => `- ${c}`)];
 }
 
 /**
