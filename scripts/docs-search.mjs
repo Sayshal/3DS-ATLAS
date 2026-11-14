@@ -52,9 +52,7 @@ export default class DocsSearch extends HandlebarsApplicationMixin(ApplicationV2
    */
   static async #fetchIndex() {
     try {
-      const res = await fetch(WIKI_SEARCH_URL);
-      if (!res.ok) return null;
-      const { results } = await res.json();
+      const { results } = await foundry.utils.fetchJsonWithTimeout(WIKI_SEARCH_URL, {}, { timeoutMs: 5000 });
       return results ?? null;
     } catch {
       return null;
