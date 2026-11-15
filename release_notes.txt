@@ -1,9 +1,3 @@
 ## New Features
 
-- Add/Update keys for: ATLAS, Calendaria, Don't Forget, Glyph, Hero Mancer, Mindful Encounters, Minstrel, Peddler, Snoot, Spell Book, Travel Pace
-
-## Bug Fixes
-
-- Changing a module's theme now restyles windows that are already open
-- The Updates Available whisper now uses ATLAS styling and shows the 3DS logo as its avatar
-- Updates Available entries for modules without a project URL now link to their Foundry package page
+- Add/Update keys for: Peddler

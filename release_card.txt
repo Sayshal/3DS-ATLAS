@@ -1,7 +1,3 @@
 ## New Features
 
-- Add/Update keys for: ATLAS, Calendaria, Don't Forget, Glyph, Hero Mancer, Mindful Encounters, Minstrel, Peddler, Snoot, Spell Book, Travel Pace
-
-## Bug Fixes
-
-- 3 bugs squashed
+- Add/Update keys for: Peddler
