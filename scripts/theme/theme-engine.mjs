@@ -328,7 +328,6 @@ export async function setModuleTheme(moduleId, themeKey, appKey) {
   }
   themes[moduleId] = entry;
   await game.settings.set(MODULE.ID, SETTINGS.MODULE_THEMES, themes);
-  applyModuleTheme(moduleId);
 }
 
 /**

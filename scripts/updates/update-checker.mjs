@@ -39,8 +39,20 @@ async function fetchLatestVersions() {
  */
 async function postAvailableChat(pending) {
   const items = pending.map((p) => `<li>${p.url ? `<a href="${p.url}">${p.title} ${p.version}</a>` : `${p.title} ${p.version}`}</li>`).join('');
-  const content = `<div class="atlas-update-notice"><h3>${_loc('ATLAS.Update.PendingTitle')}</h3><ul class="atlas-update-list">${items}</ul></div>`;
-  await ChatMessage.create({ content, whisper: [game.user.id], speaker: { alias: MODULE.TITLE } });
+  const content = `<div class="atlas atlas-update-notice"><h3>${_loc('ATLAS.Update.PendingTitle')}</h3><ul class="atlas-update-list">${items}</ul></div>`;
+  await ChatMessage.create({ content, whisper: [game.user.id], speaker: { alias: MODULE.TITLE }, flags: { [MODULE.ID]: { updateNotice: true } } });
+}
+
+/**
+ * Swap the author avatar on an Updates Available whisper for the 3DS logo.
+ * @param {ChatMessage} message  Rendered message.
+ * @param {HTMLElement} html     Message element.
+ * @returns {void}
+ */
+export function brandUpdateChat(message, html) {
+  if (!message.getFlag(MODULE.ID, 'updateNotice')) return;
+  const avatar = html.querySelector('.message-header img');
+  if (avatar) avatar.src = `modules/${MODULE.ID}/assets/3ds-logo.png`;
 }
 
 /**
@@ -70,7 +82,7 @@ export async function checkForUpdates() {
     }
     const remote = latest[entry.id];
     if (wantChat && remote && foundry.utils.isNewerVersion(remote, installed) && notified[entry.id] !== remote) {
-      const url = mod.protected ? `https://foundryvtt.com/packages/${entry.id}` : mod.url;
+      const url = (!mod.protected && mod.url) || `https://foundryvtt.com/packages/${entry.id}`;
       pending.push({ title: entry.title, version: remote, url });
       notified[entry.id] = remote;
       notifiedDirty = true;

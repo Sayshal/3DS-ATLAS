@@ -1,16 +1,7 @@
 <section class="atlas-update-content">
-  {{#if active.pending}}
-    <ul class="atlas-update-list">
-      {{#each active.pending as |p|}}
-        <li>{{#if p.url}}<a href="{{p.url}}" target="_blank">{{p.title}} {{p.version}}</a>{{else}}{{p.title}}
-            {{p.version}}{{/if}}</li>
-      {{/each}}
-    </ul>
+  {{#if active.notesHtml}}
+    <div class="atlas-update-notes">{{{active.notesHtml}}}</div>
   {{else}}
-    {{#if active.notesHtml}}
-      <div class="atlas-update-notes">{{{active.notesHtml}}}</div>
-    {{else}}
-      <p class="atlas-update-empty">{{localize "ATLAS.Update.NoNotes"}}</p>
-    {{/if}}
+    <p class="atlas-update-empty">{{localize "ATLAS.Update.NoNotes"}}</p>
   {{/if}}
 </section>

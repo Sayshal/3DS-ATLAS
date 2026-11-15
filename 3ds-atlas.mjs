@@ -4,7 +4,7 @@ import { register } from './scripts/registry.mjs';
 import { initializeRelay } from './scripts/relay.mjs';
 import ATLASSettings from './scripts/settings.mjs';
 import { applyModuleTheme, initializeThemes, syncDetachedWindow } from './scripts/theme/theme-engine.mjs';
-import { checkForUpdates } from './scripts/updates/update-checker.mjs';
+import { brandUpdateChat, checkForUpdates } from './scripts/updates/update-checker.mjs';
 import { initializeLogger, log } from './scripts/utils/logger.mjs';
 import './styles/global.css';
 import './styles/theme.css';
@@ -26,4 +26,6 @@ Hooks.once('ready', async () => {
 });
 
 Hooks.on(HOOKS.REGISTERED, (entry) => applyModuleTheme(entry.id));
+Hooks.on('renderChatMessageHTML', brandUpdateChat);
+Hooks.on('dnd5e.renderChatMessage', brandUpdateChat);
 Hooks.on('openDetachedWindow', (_id, win) => syncDetachedWindow(win));

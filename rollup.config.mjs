@@ -33,6 +33,7 @@ export default {
     copy({
       copyOnce: false,
       targets: [
+        { src: 'assets', dest: 'dist' },
         { src: 'templates', dest: 'dist' },
         { src: 'lang', dest: 'dist' },
         { src: 'module.json', dest: 'dist' },

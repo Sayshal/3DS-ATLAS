@@ -49,7 +49,7 @@ export default class ATLASSettings {
       type: new StringField({ required: true, blank: true, initial: '', choices: gmChoices }),
       onChange: resetPrimaryGM
     });
-    game.settings.register(MODULE.ID, SETTINGS.MODULE_THEMES, { scope: 'client', config: false, type: new ObjectField({ initial: {} }) });
+    game.settings.register(MODULE.ID, SETTINGS.MODULE_THEMES, { scope: 'client', config: false, type: new ObjectField({ initial: {} }), onChange: () => initializeThemes() });
     game.settings.register(MODULE.ID, SETTINGS.FORCED_THEMES, { scope: 'world', config: false, type: new ObjectField({ initial: {} }), onChange: () => initializeThemes() });
     game.settings.register(MODULE.ID, SETTINGS.CUSTOM_THEMES, { scope: 'client', config: false, type: new ObjectField({ initial: {} }) });
     game.settings.register(MODULE.ID, SETTINGS.SEEN_VERSIONS, { scope: 'world', config: false, type: new ObjectField({ initial: {} }) });

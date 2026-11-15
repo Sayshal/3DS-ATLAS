@@ -13,27 +13,22 @@ function renderMarkdown(text) {
   return `<pre>${foundry.utils.escapeHTML(text)}</pre>`;
 }
 
-/** Tabbed digest of newly-installed 3DS modules (release notes) and available updates. */
+/** Tabbed digest of newly-installed 3DS modules' release notes. */
 export default class UpdateNotice extends HandlebarsApplicationMixin(ApplicationV2) {
   /** @type {{id: string, title: string, version: string, notes: string}[]} */
   #changed;
 
-  /** @type {{title: string, version: string, url: ?string}[]} */
-  #pending;
-
-  /** @type {string} Active tab key: a changed module id or `'__pending'`. */
+  /** @type {string} Active tab key: a changed module id. */
   #active;
 
   /**
    * @param {object} options            Application options.
    * @param {object[]} options.changed  Newly-installed modules with release notes.
-   * @param {object[]} options.pending  Modules with an available update.
    */
   constructor(options = {}) {
     super(options);
     this.#changed = options.changed ?? [];
-    this.#pending = options.pending ?? [];
-    this.#active = this.#changed[0]?.id ?? '__pending';
+    this.#active = this.#changed[0]?.id;
   }
 
   /** @inheritdoc */
@@ -53,8 +48,7 @@ export default class UpdateNotice extends HandlebarsApplicationMixin(Application
   /** @inheritdoc */
   async _prepareContext() {
     const tabs = this.#changed.map((c) => ({ key: c.id, label: `${c.title} ${c.version}`, active: c.id === this.#active }));
-    if (this.#pending.length) tabs.push({ key: '__pending', label: _loc('ATLAS.Update.PendingTitle'), active: this.#active === '__pending' });
-    const active = this.#active === '__pending' ? { pending: this.#pending } : { notesHtml: renderMarkdown(this.#changed.find((c) => c.id === this.#active)?.notes) };
+    const active = { notesHtml: renderMarkdown(this.#changed.find((c) => c.id === this.#active)?.notes) };
     return { tabs, active };
   }
 
