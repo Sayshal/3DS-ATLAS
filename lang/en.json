@@ -11602,6 +11602,8 @@
   "SPELLBOOK.Manager.Confirm.DeleteTitle": "Delete Custom Spell List",
   "SPELLBOOK.Manager.Confirm.RestoreContent": "Restore \"{name}\" from the original source? Customizations will be removed.",
   "SPELLBOOK.Manager.Confirm.RestoreTitle": "Restore from Original",
+  "SPELLBOOK.Manager.Confirm.Save": "Save",
+  "SPELLBOOK.Manager.Confirm.UnsavedContent": "\"{name}\" has unsaved changes. Save them before leaving?",
   "SPELLBOOK.Manager.CreateList.ClassLabel": "Class",
   "SPELLBOOK.Manager.CreateList.CustomDescription": "Custom spell list for {identifier}",
   "SPELLBOOK.Manager.CreateList.CustomIdentifier": "Custom...",
