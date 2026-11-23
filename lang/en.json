@@ -4753,6 +4753,7 @@
   "HEROMANCER.App.Advancements.Chip.done": "Done",
   "HEROMANCER.App.Advancements.Chip.error": "Error",
   "HEROMANCER.App.Advancements.Chip.granted": "Granted",
+  "HEROMANCER.App.Advancements.Chip.optional": "Optional",
   "HEROMANCER.App.Advancements.Chip.partial-tooltip": "Selection incomplete",
   "HEROMANCER.App.Advancements.Chip.partial": "{filled} / {required}",
   "HEROMANCER.App.Advancements.Chip.prereq-missing": "Missing Prerequisite",
